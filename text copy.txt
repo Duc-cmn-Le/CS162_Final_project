@@ -1,0 +1,13 @@
+CSV helper:
+	void Write_file(matrix,string file_type /* cua matrix*/) {
+		ghi ra file csv
+	}
+	void Read_file(string file_type);
+        user_type laythongtin(primary_key); // lay thong tin 1 row trong file / 1 user
+        
+
+
+
+
+
+primary_key: username
