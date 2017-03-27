@@ -1,3 +1,24 @@
+Co 3 class tuong ung voi 3 object
+- CSV helper
+- Student management service
+- Users interface
+
+Student management service: cung cấp các function tương ứng để gọi, tùy theo role
+    + Import courses
+    + Import student lists
+    + Import schedules
+    + Import scores
+    + Get score of student
+    + Get score of course
+    + Get list of student who was present
+    + Get list of student who was absent
+    + Check-in class (string studentID, string classCode)
+
+Users interface: 
+    + Login();
+    + Logout();
+    + Menu display (string role);
+
 CSV helper:
 	void Write_file(matrix,string file_type /* cua matrix*/) {
 		ghi ra file csv
