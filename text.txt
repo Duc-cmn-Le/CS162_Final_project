@@ -1,3 +1,4 @@
+// Version 1.7
 Lưu trữ dữ liệu dưới dạng bảng trong 4 file: user.csv, course.csv, presence.csv, score.csv
 
 Có 3 class tương ứng với 3 object
