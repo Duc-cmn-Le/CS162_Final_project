@@ -1,4 +1,6 @@
-Co 3 class tuong ung voi 3 object
+Lưu trữ dữ liệu dưới dạng bảng trong 4 file: user.csv, course.csv, presence.csv, score.csv
+
+Có 3 class tương ứng với 3 object
 - CSV helper
 - Student management service
 - Users interface
@@ -23,12 +25,17 @@ CSV helper:
 	void Write_file(matrix,string file_type /* cua matrix*/) {
 		ghi ra file csv
 	}
-	void Read_file(string file_type);
-        user_type laythongtin(primary_key); // lay thong tin 1 row trong file / 1 user
+	// void Read_file(string file_type);
+        User laythongtin(string file_type, primary_key); // lay thong tin 1 row trong file / 1 user
+        Course laythongtin(string file_type, primary_key);
+        Presence laythongtin(string file_type, primary_key);
+        Score laythongtin(string file_type, primary_key);
         
+Có 4 class User, Course, Presence, Score
+Object CSV helper sẽ có các hàm tương ứng để lấy thông tin tương ứng của 1 đối tượng - tương đương 1 hàng trong file .csv
 
 
-
-
-
-primary_key: username
+primary_key của User là username
+primary_key của Course là course_code
+primary_key của Presence là một pair<course_code,student_id>
+primary_key của Score là một pair<course_code,student_id>
