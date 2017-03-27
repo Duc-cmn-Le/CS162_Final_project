@@ -12,7 +12,7 @@ Student management service: cung cấp các function tương ứng để gọi, 
     + Get score of course
     + Get list of student who was present
     + Get list of student who was absent
-    + Check-in class (string studentID, string classCode)
+    + Check-in class (string studentID, string classCode)
 
 Users interface: 
     + Login();
