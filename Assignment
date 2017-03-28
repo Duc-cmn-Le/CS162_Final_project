@@ -1,4 +1,4 @@
 March 28
 Gia Bảo: Viết file user.h user.cpp gồm định nghĩa class User và linkedlist với mỗi node là các User
-Trinh: Tìm hiểu hash password, tìm hiểu cách gõ chữ từ màn hình mà không hiện ra chữ, viết course.h định nghĩa class Course
+Trinh: Tìm hiểu hash password,  viết course.h định nghĩa class Course
 Nam: Viết file header score.h và presence.h gồm định nghĩa các class Score và Presence
