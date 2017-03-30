@@ -13,12 +13,12 @@ private:
     string mobile_phone;
     short type;
     string password;
-    string Class;
+    string _class;
 };
 struct Node
 {
     User data;
-    Node* Next;
+    Node* next;
 };
 struct Linkedlist
 {
@@ -27,6 +27,6 @@ private:
 public:
     Linkedlist();
     ~Linkedlist();
-    void add_to_last(const User u);
+    void Add_to_last(const User u);
 };
 #endif

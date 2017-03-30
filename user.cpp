@@ -11,17 +11,17 @@ Linkedlist::~Linkedlist()
     while (head!=NULL)
     {
         tmp=head;
-        head=head->Next;
+        head=head->next;
         delete tmp;
     }
 }
-void Linkedlist::add_to_last(const User u)
+void Linkedlist::Add_to_last(const User u)
 {
     if (head==NULL) head=new Node({u,NULL});
     else
     {
         Node* cur=head;
-        while (cur->Next!=NULL) cur=cur->Next;
-        cur->Next=new Node({u,NULL});
+        while (cur->next!=NULL) cur=cur->next;
+        cur->next=new Node({u,NULL});
     }
 }
