@@ -10,7 +10,12 @@
 
 using namespace std;
 
-User Get_details(string, );
-Course Get_details(string, );
-Presence Get_details(string, );
-Score Get_details(string, );
+class CSV_heper{
+public:
+    User Get_details(string,string);
+    Course Get_details(string,string);
+    Presence Get_details(string,pair<string,string>);
+    Score Get_details(string,pair<string,string> );
+};
+
+
