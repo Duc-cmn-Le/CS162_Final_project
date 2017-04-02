@@ -14,13 +14,16 @@ private:
     short type;
     string password;
     string _class;
+public:
+    void Input();
 };
-struct Node
+class Node
 {
+public:
     User data;
     Node* next;
 };
-struct Linkedlist
+class Linkedlist
 {
 private:
     Node *head;

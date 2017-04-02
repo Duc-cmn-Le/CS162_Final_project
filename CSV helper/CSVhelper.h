@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class CSV_heper{
+class CSV_helper{
 public:
     User Get_details(string,string);
     Course Get_details(string,string);
