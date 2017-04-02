@@ -2,11 +2,13 @@
 #ifndef _USER_H_
 #define _USER_H_
 #include<iostream>
+#include<cstring>
 #include<string>
+//
 using namespace std;
 class User
 {
-private:
+public:
     string username;
     string full_name;
     string email;

@@ -22,15 +22,16 @@ void User::Input() {
     }   
     cout << "Class? ";
     cin >> _class;
-    type =0;
+    type = 0;
 }
+
 
 void User::Print() {
     cout << "Username " << username << '\n';
     cout << "Full name " << full_name << '\n';
     cout << "Email " << email << '\n';
     cout << "Mobile phone " << mobile_phone << '\n';
-    cout << "_class " << _class << '\n';
+    cout << "Class " << _class << '\n';
 }
 
 
@@ -53,6 +54,7 @@ void Linkedlist::Add_to_last(const User u)
         cur->next=new Node({u,NULL});
     }
 }
+
 
 void Linkedlist::Add_student_to_last() {
     User a;
