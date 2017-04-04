@@ -1,0 +1,11 @@
+httu,Hoang Thanh Tu,httu@apcs.vn,100000,1,fapfapfap,empty
+dbtien,Dinh Ba Tien,dbtien@apcs.vn,100001,2,abcxyz,empty
+1651004,Yasuo,yasuo@apcs.vn,100002,0,haylamdmm,16CTT
+1551044,Razor Involker,rinvolker@apcs.vn,100003,0,ganktem,15CTT
+1651055,Tran Bao Ngoc,tbngoc@apcs.vn,100004,0,ngocptnk1316,16CTT
+1551001,Super Stupid Idiot,ssidiot@apcs.vn,100005,0,veryintelligent,15CTT
+1151005,Le Van Luyen,lvluyen@apcs.vn,100006,0,legendkiller,11CTT
+1251003,Con Van Lu,cvlu@apcs.vn,100007,0,!@#$%^&*(),12CTT
+1361002,Pham Nhat Vuong,pnvuong@apcs.vn,100008,0,rich's boy's,13CTT
+nhnha,Nguyen Huu Nha,nhnha@apcs.vn,100009,2,physhitislife,empty
+nhanh,Nguyen Huu Anh,nhanh@apcs.vn,100010,2,conculus2,empty
