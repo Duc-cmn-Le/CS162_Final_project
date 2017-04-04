@@ -13,11 +13,13 @@
 */
 using namespace std;
 
+int Next_token(string &,string &);
+
 class CSV_helper{
 public:
     void Write_file(Student_list &,string);
-   /* 
-    User Get_details(string,string);
+    int Get_details(string,string,User &);
+    /*
     Course Get_details(string,string);
     Presence Get_details(string,pair<string,string>);
     Score Get_details(string,pair<string,string> );

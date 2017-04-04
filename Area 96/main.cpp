@@ -7,6 +7,16 @@
 using namespace std;
 
 int main() {
+    User a;
+    CSV_helper helper;
+    if (helper.Get_details("user.txt","1651049",a))
+        a.Print();
+    else cout << "Cant find";
+    return 0;
+}
+/* 
+ * TEST IMPORT STUDENT
+int main() {
     Student_list a;
     cout << "Enter number of student\n";
     int n;
@@ -17,3 +27,4 @@ int main() {
     Helper.Write_file(a,"user.txt");
     return 0;
 }
+*/

@@ -25,7 +25,7 @@ Users interface:
 CSV helper:
         void Write_file(Student_list &,string file_name); // Ghi them thong tin cua student list ra file user.txt
 	// void Read_file(string file_type);
-        User laythongtin(string file_type, primary_key); // lay thong tin 1 row trong file / 1 user
+        int Get_details(string file_name, string student_id, User &); // tra ve true/false
         Course laythongtin(string file_type, primary_key);
         Presence laythongtin(string file_type, primary_key);
         Score laythongtin(string file_type, primary_key);

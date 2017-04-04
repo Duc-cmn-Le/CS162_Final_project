@@ -1,15 +1,47 @@
 #include "CSVhelper.h"
 
+int Next_token(string &s,string &target) {
+    target = "";
+    int cnt = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i,cnt++)
+        if (*i == ',') {
+            target.insert(target.begin(),s.begin(),i);
+            s.erase(0,cnt+1);
+            return true;
+        }
+    target = s;
+    return false;
+}
+
 void CSV_helper::Write_file(Student_list &L,string file_name) {
     freopen((file_name).c_str(),"a+",stdout);
     L.Print_list_one_line();
 }
 
-/*
 
-User CSVhelper::Get_details(string file_type,string username) {
-
+int CSV_helper::Get_details(string file_type,string username,User &res) {
+    freopen(file_type.c_str(),"r",stdin);
+    string S, s;
+    while (getline(cin,S)) {
+        Next_token(S,s);
+        if (s != username) continue;
+        res.username = s;
+        Next_token(S,s);
+        res.full_name = s;
+        Next_token(S,s);
+        res.email = s;
+        Next_token(S,s);
+        res.mobile_phone = s;
+        Next_token(S,s);
+        res.type  = s[0]-'0';
+        Next_token(S,s);
+        res._class = S; 
+        return true;
+    }
+    return false;
 }
+
+/*
 
 Course CSVhelper::Get_details(string file_type,string course_code) {
 
