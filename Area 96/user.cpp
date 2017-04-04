@@ -137,6 +137,17 @@ void Student_list::Print_list_one_line() {
     }
 }
 
+void Student_list::Make_empty() {
+    Node *cur, *next;
+    cur = head;
+    while (cur != NULL) {
+        next = cur->next;
+        delete cur;
+        cur = next;
+    }
+    head = NULL;
+}
+
 Student_list::~Student_list()
 {
     Node* tmp;

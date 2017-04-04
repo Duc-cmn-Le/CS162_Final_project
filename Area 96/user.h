@@ -41,6 +41,7 @@ public:
     void Delete_node(string);
     void Print_list();
     void Print_list_one_line();
+    void Make_empty();
     ~Student_list();
 };
 #endif
