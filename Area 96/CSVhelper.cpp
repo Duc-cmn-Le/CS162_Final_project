@@ -41,6 +41,17 @@ int CSV_helper::Get_details(string file_type,string username,User &res) {
     return false;
 }
 
+Presence CSV_helper::Get_details(string file_name,pair<string,string> primary_key,Presence &res) {
+    freopen(file_name.c_str(),"r",stdin);
+    string S, s, s_code;
+    int year, semester, week;
+    while (getline(cin,S)) {
+        Next_token(S,s_code);
+        if (s_code != primary_key.first) continue;
+
+    }
+}
+
 /*
 
 Course CSVhelper::Get_details(string file_type,string course_code) {
