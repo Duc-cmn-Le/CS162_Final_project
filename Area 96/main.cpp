@@ -2,6 +2,7 @@
 //#include "UI.h"
 //#include "SMS.h"
 #include "user.h"
+#include "CSVhelper.h"
 
 using namespace std;
 
@@ -11,6 +12,8 @@ int main() {
     int n;
     cin >> n;
     for (;n;n--) a.Add_student_to_last();
-    a.Print_list();
+//    a.Print_list();
+    CSV_helper Helper;
+    Helper.Write_file(a,"user.txt");
     return 0;
 }

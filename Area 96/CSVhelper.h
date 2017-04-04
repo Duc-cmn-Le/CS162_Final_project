@@ -15,6 +15,7 @@ using namespace std;
 
 class CSV_helper{
 public:
+    void Write_file(Student_list &,string);
    /* 
     User Get_details(string,string);
     Course Get_details(string,string);

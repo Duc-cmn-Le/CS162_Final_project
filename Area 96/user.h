@@ -20,6 +20,7 @@ public:
 public:
     void Input();
     void Print();
+    void Print_one_line();
 };
 class Node
 {
@@ -36,6 +37,7 @@ public:
     void Add_to_last(const User u);
     void Add_student_to_last();
     void Print_list();
+    void Print_list_one_line();
     ~Student_list();
 };
 #endif

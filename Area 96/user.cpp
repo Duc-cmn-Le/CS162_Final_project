@@ -17,7 +17,7 @@ void User::Input() {
     cin >> s;
     cout << "Confirm your password ";
     while (cin >> ss) {
-        if (ss == s) break;
+        if (ss == s) {password = s; break;}
         cout << "Password is not matched\n";
     }   
     cout << "Class? ";
@@ -35,6 +35,15 @@ void User::Print() {
     cout << "Class: " << setw(_width+7) << _class << '\n';
 }
 
+void User::Print_one_line() {
+    cout << username << ',';
+    cout << full_name << ',';
+    cout << email << ',';
+    cout << mobile_phone << ',';
+    cout << type << ',';
+    cout << password << ',';
+    cout << _class;
+}
 
 
 
@@ -67,6 +76,15 @@ void Student_list::Print_list() {
     Node *cur = head;
     while (cur != NULL) {
         cur->data.Print();
+        cur = cur->next;
+    }
+}
+
+void Student_list::Print_list_one_line() {
+    Node *cur  = head;
+    while (cur != NULL) {
+        cur->data.Print_one_line();
+        cout << '\n';
         cur = cur->next;
     }
 }
