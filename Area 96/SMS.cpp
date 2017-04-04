@@ -6,7 +6,7 @@
 void Student_management_service::Import_student_list() {
     cout << "Enter 0 if you want to import from keyboard\n";
     int flag;
-    Linkedlist a;
+    Student_list a;
     while (cin >> flag) {
         cout << "Enter number of student\n";
         int number;

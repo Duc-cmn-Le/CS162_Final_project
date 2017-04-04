@@ -4,6 +4,7 @@
 #include<iostream>
 #include<cstring>
 #include<string>
+#include<iomanip>
 //
 using namespace std;
 class User
@@ -26,15 +27,15 @@ public:
     User data;
     Node* next;
 };
-class Linkedlist
+class Student_list
 {
 private:
     Node *head;
 public:
-    Linkedlist();
+    Student_list();
     void Add_to_last(const User u);
     void Add_student_to_last();
     void Print_list();
-    ~Linkedlist();
+    ~Student_list();
 };
 #endif

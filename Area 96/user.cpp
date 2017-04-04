@@ -27,11 +27,12 @@ void User::Input() {
 
 
 void User::Print() {
-    cout << "Username " << username << '\n';
-    cout << "Full name " << full_name << '\n';
-    cout << "Email " << email << '\n';
-    cout << "Mobile phone " << mobile_phone << '\n';
-    cout << "Class " << _class << '\n';
+    int _width = 20;
+    cout << "Username: " << setw(_width+4) << username << '\n';
+    cout << "Full name: " << setw(_width+3) << full_name << '\n';
+    cout << "Email: " << setw(_width+7) << email << '\n';
+    cout << "Mobile phone: " << setw(_width) << mobile_phone << '\n';
+    cout << "Class: " << setw(_width+7) << _class << '\n';
 }
 
 
@@ -39,12 +40,12 @@ void User::Print() {
 
 // Linked list of users
 
-Linkedlist::Linkedlist()
+Student_list::Student_list()
 {
     head=NULL;
 }
 
-void Linkedlist::Add_to_last(const User u)
+void Student_list::Add_to_last(const User u)
 {
     if (head==NULL) head=new Node({u,NULL});
     else
@@ -56,13 +57,13 @@ void Linkedlist::Add_to_last(const User u)
 }
 
 
-void Linkedlist::Add_student_to_last() {
+void Student_list::Add_student_to_last() {
     User a;
     a.Input();
     Add_to_last(a);
 }
 
-void Linkedlist::Print_list() {
+void Student_list::Print_list() {
     Node *cur = head;
     while (cur != NULL) {
         cur->data.Print();
@@ -70,7 +71,7 @@ void Linkedlist::Print_list() {
     }
 }
 
-Linkedlist::~Linkedlist()
+Student_list::~Student_list()
 {
     Node* tmp;
     while (head!=NULL)

@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    Linkedlist a;
+    Student_list a;
     cout << "Enter number of student\n";
     int n;
     cin >> n;

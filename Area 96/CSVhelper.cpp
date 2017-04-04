@@ -1,6 +1,6 @@
 #include "CSVhelper.h"
 
-
+/*
 
 User CSVhelper::Get_details(string file_type,string username) {
 
@@ -17,3 +17,4 @@ Presence CSVhelper::Get_details(string file_type,pair<string,string> primary_key
 Score CSVhelper::Get_details(string file_type,pair<string,string> primary_key) {
 
 }
+*/
