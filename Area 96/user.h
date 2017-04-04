@@ -7,6 +7,7 @@
 #include<iomanip>
 //
 using namespace std;
+
 class User
 {
 public:
@@ -36,6 +37,8 @@ public:
     Student_list();
     void Add_to_last(const User u);
     void Add_student_to_last();
+    void List_all_student();
+    void Delete_node(string);
     void Print_list();
     void Print_list_one_line();
     ~Student_list();

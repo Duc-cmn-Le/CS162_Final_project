@@ -2,16 +2,16 @@
 //#include "UI.h"
 //#include "SMS.h"
 #include "user.h"
-#include "CSVhelper.h"
 
 using namespace std;
 
 int main() {
-    User a;
-    CSV_helper helper;
-    if (helper.Get_details("user.txt","1651049",a))
-        a.Print();
-    else cout << "Cant find";
+    Student_list a;
+    a.List_all_student();
+    a.Print_list();
+    cout << "Xoa me thang Hieu\n";
+    a.Delete_node("1651044");
+    a.Print_list();
     return 0;
 }
 /* 
