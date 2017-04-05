@@ -13,7 +13,7 @@ struct Time
 
 enum Week = {monday, tuesday, wednesday, thursday, friday, saturday, sunday};
 
-class Course_list
+class Course
 {
     string coure_code, year, course_name, lecturer_name;
     Date start_at, end_at;
