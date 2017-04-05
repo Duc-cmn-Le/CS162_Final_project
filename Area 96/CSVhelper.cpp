@@ -1,4 +1,5 @@
 #include "CSVhelper.h"
+#include <cstdio>
 
 int Next_token(string &s,string &target) {
     target = "";
@@ -14,13 +15,17 @@ int Next_token(string &s,string &target) {
 }
 
 void CSV_helper::Write_file(Student_list &L,string file_name) {
-    freopen((file_name).c_str(),"a+",stdout);
+    FILE *pfile;
+    pfile = freopen((file_name).c_str(),"a+",stdout);
     L.Print_list_one_line();
+    fclose(pfile);
 }
 
 void CSV_helper::Write_file(Course_list &L,string file_name) {
-    freopen((file_name).c_str(),"a+",stdout);
+    FILE *pfile;
+    pfile = freopen((file_name).c_str(),"a+",stdout);
     L.Print_list_one_line();
+    fclose(pfile);
 }
 
 int CSV_helper::Get_details(string file_type,string username,User &res) {

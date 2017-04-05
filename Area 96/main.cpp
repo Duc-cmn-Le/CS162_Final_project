@@ -1,12 +1,17 @@
 #include "CSVhelper.h"
 //#include "UI.h"
-//#include "SMS.h"
+#include "SMS.h"
 #include "user.h"
 #include "course.h"
 
 using namespace std;
 
-// TEST IMPORT STUDENT
+int main() {
+    Student_management_service Service;
+    Service.Import_course();
+}
+/*
+ TEST IMPORT STUDENT
 int main() {
     Course_list a;
     cout << "Enter number of course\n";
@@ -17,6 +22,7 @@ int main() {
     Helper.Write_file(a,"course.txt");
     return 0;
 }
+*/
 /* 
  * TEST IMPORT STUDENT
 int main() {

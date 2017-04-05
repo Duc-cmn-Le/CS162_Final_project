@@ -4,19 +4,28 @@
 
 //Import student list
 void Student_management_service::Import_student_list() {
-    cout << "Enter 0 if you want to import from keyboard\n";
-    int flag;
     Student_list a;
-    while (cin >> flag) {
-        cout << "Enter number of student\n";
-        int number;
-        cin >> number;
-        for (;number;number--) 
-            a.Add_student_to_last();
-        break;
-    }
-
+    cout << "Enter number of student\n";
+    int number;
+    cin >> number;
+    for (;number;number--) 
+        a.Add_student_to_last();
+    CSV_helper Helper;
+    Helper.Write_file(a,"user.txt");
 }
+
+void Student_management_service::Import_course() {
+    Course_list a;
+    cout << "Enter number of course\n";
+    int number;
+    cin >> number;
+    for (;number;number--) 
+        a.Add_a_course();
+    CSV_helper Helper;
+    Helper.Write_file(a,"course.txt");
+}
+
+
 
 //Import schedules
 
