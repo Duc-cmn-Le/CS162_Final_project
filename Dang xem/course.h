@@ -11,15 +11,15 @@ struct Time
     int s, m, h;
 };
 
-enum Week = {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
+enum Week = {monday, tuesday, wednesday, thursday, friday, saturday, sunday};
 
-class Course
+class Course_list
 {
-    string coureCode, Year, courseName, lecturerName;
-    Date startAt, endAt;
-    Time From, To;
-    Week dateOfWeek;
-    int Semester;
+    string coure_code, year, course_name, lecturer_name;
+    Date start_at, end_at;
+    Time from, to;
+    Week date_of_week;
+    int semester;
 } ;
 
 #endif
