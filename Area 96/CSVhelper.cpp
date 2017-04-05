@@ -18,6 +18,10 @@ void CSV_helper::Write_file(Student_list &L,string file_name) {
     L.Print_list_one_line();
 }
 
+void CSV_helper::Write_file(Course_list &L,string file_name) {
+    freopen((file_name).c_str(),"a+",stdout);
+    L.Print_list_one_line();
+}
 
 int CSV_helper::Get_details(string file_type,string username,User &res) {
     freopen(file_type.c_str(),"r",stdin);
@@ -40,7 +44,7 @@ int CSV_helper::Get_details(string file_type,string username,User &res) {
     }
     return false;
 }
-
+/*
 Presence CSV_helper::Get_details(string file_name,pair<string,string> primary_key,Presence &res) {
     freopen(file_name.c_str(),"r",stdin);
     string S, s, s_code;
@@ -51,6 +55,7 @@ Presence CSV_helper::Get_details(string file_name,pair<string,string> primary_ke
 
     }
 }
+*/
 
 /*
 
