@@ -1,10 +1,17 @@
 #include "UI.h"
-void User_interface::Login() {
+
+void User_interface::Program() {
+}
+
+int User_interface::Login(string username,string password) {
     
+    // Neu dung password
+    type = ...; // gan gia tri cho type tuong ung voi user ma minh tim dc
+    return true;
 }
 
 void User_interface::Logout() {
-
+    type = -1;
 }
 
 void User_interface::Menu_display(string role) {
