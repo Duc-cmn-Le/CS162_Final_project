@@ -7,10 +7,10 @@ Có 3 class tương ứng với 3 object
 - Users interface
 
 Student management service: cung cấp các function tương ứng để gọi, tùy theo role
-    + Import courses (finished)
-    + Import student lists (finished)
+    + Import courses                    (finished)
+    + Import student lists              (finished)
     + Import schedules
-    + Import scores
+    + Import scores                     (finished)
     + Get score of student
     + Get score of course
     + Get list of student who was present
@@ -25,6 +25,7 @@ Users interface:
 CSV helper:
         void Write_file(Student_list &,string file_name); // Ghi them thong tin cua student list ra file user.txt
         void Write_file(Course_list &,string file_name); // Ghi them thong tin cua course list ra file course.txt
+        void Write_file(Score_list &,string file_name); // Ghi them thong tin cua score list ra file score.txt
 	// void Read_file(string file_type);
         int Get_details(string file_name, string student_id, User &); // tra ve true/false
         Course laythongtin(string file_type, primary_key);
