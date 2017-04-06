@@ -30,6 +30,16 @@ void Student_management_service::Import_course() {
 //Import schedules
 
 //Import scores
+void Student_management_service::Import_score() {
+    Score_list a;
+    int number;
+    cout << "Enter number of score\n";
+    cin >> number;
+    for (;number;number--)
+        a.Add_score_to_last();
+    CSV_helper Helper;
+    Helper.Write_file(a,"score.txt");
+}
 
 //Get score of student
 

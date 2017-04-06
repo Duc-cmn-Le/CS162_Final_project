@@ -15,7 +15,7 @@ public:
     void Import_course(); // Finished
     void Import_student_list(); // Finished
     void Import_schedules();
-    void Import_scores();
-    
+    void Import_score();
+     
 };
 #endif

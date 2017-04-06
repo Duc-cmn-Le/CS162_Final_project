@@ -24,6 +24,7 @@ public:
     void Print(ostream &);
     void Print_one_line(ostream &);
 };
+
 class Node
 {
 public:

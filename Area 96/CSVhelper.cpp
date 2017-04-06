@@ -26,6 +26,12 @@ void CSV_helper::Write_file(Course_list &L,string file_name) {
     fout.close();
 }
 
+void CSV_helper::Write_file(Score_list &L,string file_name) {
+    ofstream fout(file_name.c_str(),fstream::app);
+    L.Print_list_one_line(fout);
+    fout.close();
+}
+
 int CSV_helper::Get_details(string file_type,string username,User &res) {
     freopen(file_type.c_str(),"r",stdin);
     string S, s;
