@@ -1,5 +1,2 @@
-CS161,2016,1,Introduction to Computer Science I,dbtien,10/9/2016,23/12/2016,7h30'0'',9h10'0'',Tuesday
-CS162,2017,2,Introduction to Computer Science,dbtien,10/1/2017,18/4/2017,13h30'0'',15h10'0'',Saturday
-PH201,2016,1,General Physics I,vththu,6/9/2016,23/12/2016,9h30'0'',11h10'0'',Thursday
-PH202,2017,2,General Physics II,nhnha,10/1/2017,18/4/2017,13h30'0'',15h10'0'',Friday
-MTH252,2017,2,Calculus II,nhanh,10/1/2017,18/4/2017,9h30'0'',11h10'0'',Tuesday
+TC001,2017,2,Physical Education,nvhung,5/1/2017,20/4/2017,7h30'0'',11h10'0'',Saturday
+CS161,2016,1,Introduction to Computer Science I,dbtien,10/9/2016,23/12/2016,7h30'0'',11h10'0'',Friday

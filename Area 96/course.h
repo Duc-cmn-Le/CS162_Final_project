@@ -23,8 +23,8 @@ class Course
     Time from, to;
     int semester;
     void Input();
-    void Print();
-    void Print_one_line();
+    void Print(ostream &);
+    void Print_one_line(ostream &);
 } ;
 
 class Node_course
@@ -45,8 +45,8 @@ public:
     void Add_a_course();
     void Delete_node(string s);
     void Delete_a_course();
-    void Print_list();
-    void Print_list_one_line();
+    void Print_list(ostream &);
+    void Print_list_one_line(ostream &);
     void Make_empty();
 };
 

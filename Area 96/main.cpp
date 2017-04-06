@@ -8,7 +8,8 @@ using namespace std;
 
 int main() {
     Student_management_service Service;
-    Service.Import_course();
+//    Service.Import_course();
+    Service.Import_student_list();
 }
 /*
  TEST IMPORT STUDENT

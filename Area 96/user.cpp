@@ -39,23 +39,23 @@ void User::Input() {
 }
 
 
-void User::Print() {
+void User::Print(ostream &fout) {
     int _width = 20;
-    cout << "Username: " << setw(_width+4) << username << '\n';
-    cout << "Full name: " << setw(_width+3) << full_name << '\n';
-    cout << "Email: " << setw(_width+7) << email << '\n';
-    cout << "Mobile phone: " << setw(_width) << mobile_phone << '\n';
-    cout << "Class: " << setw(_width+7) << _class << '\n';
+    fout << "Username: " << setw(_width+4) << username << '\n';
+    fout << "Full name: " << setw(_width+3) << full_name << '\n';
+    fout << "Email: " << setw(_width+7) << email << '\n';
+    fout << "Mobile phone: " << setw(_width) << mobile_phone << '\n';
+    fout << "Class: " << setw(_width+7) << _class << '\n';
 }
 
-void User::Print_one_line() {
-    cout << username << ',';
-    cout << full_name << ',';
-    cout << email << ',';
-    cout << mobile_phone << ',';
-    cout << type << ',';
-    cout << password << ',';
-    cout << _class;
+void User::Print_one_line(ostream &fout) {
+    fout << username << ',';
+    fout << full_name << ',';
+    fout << email << ',';
+    fout << mobile_phone << ',';
+    fout << type << ',';
+    fout << password << ',';
+    fout << _class;
 }
 
 
@@ -120,19 +120,19 @@ void Student_list::Delete_node(string student_id) {
     }
 }
 
-void Student_list::Print_list() {
+void Student_list::Print_list(ostream &fout) {
     Node *cur = head;
     while (cur != NULL) {
-        cur->data.Print();
+        cur->data.Print(fout);
         cur = cur->next;
     }
 }
 
-void Student_list::Print_list_one_line() {
+void Student_list::Print_list_one_line(ostream &fout) {
     Node *cur  = head;
     while (cur != NULL) {
-        cur->data.Print_one_line();
-        cout << '\n';
+        cur->data.Print_one_line(fout);
+        fout << '\n';
         cur = cur->next;
     }
 }

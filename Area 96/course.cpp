@@ -26,32 +26,32 @@ void Course::Input()
     cin >> date_of_week;
 }
 
-void Course::Print()
+void Course::Print(ostream &fout)
 {
-    cout << "Course Code: " << course_code << "\n";
-    cout << "Year: " << year <<"\n";
-    cout << "Semester: " << semester << "\n";
-    cout << "Course Name: " << course_name << "\n";
-    cout << "Lecturer Name: " << lecturer_name << "\n";
-    cout << "Start at: " << start_at.d << "/" << start_at.m << "/" << start_at.y << "\n";
-    cout << "End at: " << end_at.d << "/" << end_at.m << "/" << end_at.y << "\n";
-    cout << "From: " << from.h << "h" << from.m << "'" << from.s << "''\n";
-    cout << "To: " << to.h << "h" << to.m << "'" << to.s << "''\n";
-    cout << "Dates of week: " << date_of_week << "\n";
+    fout << "Course Code: " << course_code << "\n";
+    fout << "Year: " << year <<"\n";
+    fout << "Semester: " << semester << "\n";
+    fout << "Course Name: " << course_name << "\n";
+    fout << "Lecturer Name: " << lecturer_name << "\n";
+    fout << "Start at: " << start_at.d << "/" << start_at.m << "/" << start_at.y << "\n";
+    fout << "End at: " << end_at.d << "/" << end_at.m << "/" << end_at.y << "\n";
+    fout << "From: " << from.h << "h" << from.m << "'" << from.s << "''\n";
+    fout << "To: " << to.h << "h" << to.m << "'" << to.s << "''\n";
+    fout << "Dates of week: " << date_of_week << "\n";
 }
 
-void Course::Print_one_line()
+void Course::Print_one_line(ostream &fout)
 {
-    cout << course_code << ",";
-    cout << year << ",";
-    cout << semester << ",";
-    cout << course_name << ",";
-    cout << lecturer_name << ",";
-    cout << start_at.d << "/" << start_at.m << "/" << start_at.y << ',';
-    cout << end_at.d << "/" << end_at.m << "/" << end_at.y << ",";
-    cout << from.h << "h" << from.m << "'" << from.s << "'',";
-    cout << to.h << "h" << to.m << "'" << to.s << "'',";
-    cout << date_of_week << "\n";
+    fout << course_code << ",";
+    fout << year << ",";
+    fout << semester << ",";
+    fout << course_name << ",";
+    fout << lecturer_name << ",";
+    fout << start_at.d << "/" << start_at.m << "/" << start_at.y << ',';
+    fout << end_at.d << "/" << end_at.m << "/" << end_at.y << ",";
+    fout << from.h << "h" << from.m << "'" << from.s << "'',";
+    fout << to.h << "h" << to.m << "'" << to.s << "'',";
+    fout << date_of_week;
 }
 
 Node_course::Node_course(Course x)
@@ -90,22 +90,23 @@ void Course_list::Add_a_course()
     Add_tail(x);
 }
 
-void Course_list::Print_list()
+void Course_list::Print_list(ostream &fout)
 {
     Node_course* p = head;
     while (p)
     {
-        (p -> data).Print();
+        (p -> data).Print(fout);
         p = p -> next;
     }
 }
 
-void Course_list::Print_list_one_line()
+void Course_list::Print_list_one_line(ostream &fout)
 {
     Node_course* p = head;
     while (p)
     {
-        (p -> data).Print_one_line();
+        (p -> data).Print_one_line(fout);
+        fout << '\n';
         p = p -> next;
     }
 }

@@ -2,6 +2,7 @@
 #ifndef _USER_H_
 #define _USER_H_
 #include<iostream>
+#include<fstream>
 #include<cstring>
 #include<string>
 #include<iomanip>
@@ -20,8 +21,8 @@ public:
     string _class;
 public:
     void Input();
-    void Print();
-    void Print_one_line();
+    void Print(ostream &);
+    void Print_one_line(ostream &);
 };
 class Node
 {
@@ -39,8 +40,8 @@ public:
     void Add_student_to_last();
     void List_all_student();
     void Delete_node(string);
-    void Print_list();
-    void Print_list_one_line();
+    void Print_list(ostream &);
+    void Print_list_one_line(ostream &);
     void Make_empty();
     ~Student_list();
 };
