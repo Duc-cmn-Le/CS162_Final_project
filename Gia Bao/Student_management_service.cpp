@@ -1,6 +1,6 @@
 #include "Student_management_service.h"
 //course_code,year,semester,student_id,midterm,lab,final
-void Student_management_service::Export_scores_of_student(const User u)
+void Student_management_service::Export_scores_of_student(const string username)
 {
     ifstream f;
     f.open("score.txt");
@@ -12,7 +12,7 @@ void Student_management_service::Export_scores_of_student(const User u)
         f>>s;
         i=s.find(',',s.find(',',s.find(',')+1)+1)+1;
         j=s.find(',',i);
-        if (s.substr(i,j-i)==u.username)
+        if (s.substr(i,j-i)==username)
         {
             cout<<"Course code: "<<s.substr(0,s.find(','));
             cout<<"\nMidterm: ";
@@ -28,7 +28,7 @@ void Student_management_service::Export_scores_of_student(const User u)
     f.close();
     if (!exist) cout<<"This student is not found!\n\n";
 }
-void Student_management_service::Export_scores_of_course(const Course c)
+void Student_management_service::Export_scores_of_course(const string course_id)
 {
     ifstream f;
     f.open("score.txt");
@@ -38,7 +38,7 @@ void Student_management_service::Export_scores_of_course(const Course c)
     while (!f.eof())
     {
         f>>s;
-        if (s.substr(0,s.find(','))==c.course_code)
+        if (s.substr(0,s.find(','))==course_id)
         {
             cout<<"Student ID: ";
             i=s.find(',',s.find(',',s.find(',')+1)+1)+1;
