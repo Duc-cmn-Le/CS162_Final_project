@@ -9,7 +9,7 @@ using namespace std;
 class Student_management_service
 {
 public:
-    void Export_scores_of_student(const User u);
-    void Export_scores_of_course(const Course c);
+    void Export_scores_of_student(const string username);
+    void Export_scores_of_course(const string course_id);
 };
 #endif
