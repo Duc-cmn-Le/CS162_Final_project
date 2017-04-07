@@ -9,7 +9,7 @@ using namespace std;
 
 class Score
 {
-protected:
+public:
     string course_code;
     string student_id;
     int year;

@@ -6,6 +6,7 @@ void Student_management_service::Export_scores_of_student(const User u)
     f.open("score.txt");
     string s;
     int i,j;
+    bool exist=false;
     while (!f.eof())
     {
         f>>s;
@@ -21,9 +22,11 @@ void Student_management_service::Export_scores_of_student(const User u)
             cout<<"\nFinal: ";
             for(i=j+1;i<s.size();i++) cout<<s[i];
             cout<<"\n\n";
+            exist=true;
         }
     }
     f.close();
+    if (!exist) cout<<"This student is not found!\n\n";
 }
 void Student_management_service::Export_scores_of_course(const Course c)
 {
@@ -31,6 +34,7 @@ void Student_management_service::Export_scores_of_course(const Course c)
     f.open("score.txt");
     string s;
     int i,j;
+    bool exist=false;
     while (!f.eof())
     {
         f>>s;
@@ -46,7 +50,9 @@ void Student_management_service::Export_scores_of_course(const Course c)
             cout<<"\nFinal: ";
             for(i=j+1;i<s.size();i++) cout<<s[i];
             cout<<"\n\n";
+            exist=true;
         }
     }
     f.close();
+    if (!exist) cout<<"This course is not found!\n\n";
 }

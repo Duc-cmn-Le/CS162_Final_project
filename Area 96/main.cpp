@@ -8,9 +8,10 @@ using namespace std;
 
 int main() {
     Student_management_service Service;
-    Service.Import_score();
-//    Service.Import_course();
+    Service.Print_present("MTH251",cout);
 //    Service.Import_student_list();
+//    Service.Import_score();
+//    Service.Import_course();
 }
 /*
  TEST IMPORT STUDENT

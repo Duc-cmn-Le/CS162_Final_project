@@ -16,6 +16,10 @@ public:
     void Import_student_list(); // Finished
     void Import_schedules();
     void Import_score();
-     
+
+//    void Export_scores_of_student(const User u);
+//    void Export_scores_of_course(const Course c);
+    void Print_present(string,ostream &); 
+    void Print_absent(string);
 };
 #endif

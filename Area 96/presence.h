@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+int __Next_token(string &,string &);
+
 class Presence
 {
 protected:
@@ -12,6 +14,4 @@ protected:
 	int year;
 	int semeter;
 	int week;
-public:
-	void check_in (pair <string, string> primary_key, int week, int year, int semeter);
 };
