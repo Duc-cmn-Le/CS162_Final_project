@@ -9,12 +9,12 @@ Có 3 class tương ứng với 3 object
 Student management service: cung cấp các function tương ứng để gọi, tùy theo role
     + Import courses                    (finished)
     + Import student lists              (finished)
-    + Import schedules
+    + Import schedules                     ???? 
     + Import scores                     (finished)
-    + Get score of student
-    + Get score of course
-    + Get list of student who was present
-    + Get list of student who was absent
+    + Get score of student                  (testing)
+    + Get score of course                   (testing)
+    + Get list of student who was present   (testing)
+    + Get list of student who was absent    (testing)
     + Check-in class (string studentID, string classCode)
 
 Users interface: 
@@ -26,11 +26,11 @@ CSV helper:
         void Write_file(Student_list &,string file_name); // Ghi them thong tin cua student list ra file user.txt
         void Write_file(Course_list &,string file_name); // Ghi them thong tin cua course list ra file course.txt
         void Write_file(Score_list &,string file_name); // Ghi them thong tin cua score list ra file score.txt
-	// void Read_file(string file_type);
+
         int Get_details(string file_name, string student_id, User &); // tra ve true/false
-        Course laythongtin(string file_type, primary_key);
-        Presence laythongtin(string file_type, primary_key);
-        Score laythongtin(string file_type, primary_key);
+//        Course laythongtin(string file_type, primary_key);
+//        Presence laythongtin(string file_type, primary_key);
+//        Score laythongtin(string file_type, primary_key);
         
 Có 4 class User, Course, Presence, Score
 Object CSV helper sẽ có các hàm tương ứng để lấy thông tin tương ứng của 1 đối tượng - tương đương 1 hàng trong file .csv
