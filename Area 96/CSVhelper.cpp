@@ -1,6 +1,14 @@
 #include "CSVhelper.h"
 #include <cstdio>
 
+void Plus_one_week (string &week)
+{
+        if (week == "9") week = "10";
+        else if (week == "19") week = "20";
+        else if (week.length() == 1) week[0]++;
+        else week[1]++;
+}
+
 int Next_token(string &s,string &target) {
     target = "";
     int cnt = 0;
@@ -33,9 +41,9 @@ void CSV_helper::Write_file(Score_list &L,string file_name) {
 }
 
 int CSV_helper::Get_details(string file_type,string username,User &res) {
-    freopen(file_type.c_str(),"r",stdin);
+    ifstream fin(file_type.c_str());
     string S, s;
-    while (getline(cin,S)) {
+    while (getline(fin,S)) {
         Next_token(S,s);
         if (s != username) continue;
         res.username = s;

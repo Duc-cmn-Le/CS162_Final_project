@@ -20,6 +20,6 @@ public:
 //    void Export_scores_of_student(const User u);
 //    void Export_scores_of_course(const Course c);
     void Print_present(string,ostream &); 
-    void Print_absent(string);
+    void Print_absent(string,ostream &);
 };
 #endif

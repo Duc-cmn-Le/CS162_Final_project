@@ -86,10 +86,10 @@ void Student_list::Add_student_to_last() {
 }
 
 void Student_list::List_all_student() {
-    freopen("user.txt","r",stdin);
+    ifstream fin("user.txt");
     string S, s;
     User t;
-    while (getline(cin,S)) {
+    while (getline(fin,S)) {
         _Next_token(S,s);
         t.username = s;
         _Next_token(S,s);
@@ -107,7 +107,13 @@ void Student_list::List_all_student() {
 }
 
 void Student_list::Delete_node(string student_id) {
-    if (head->data.username == student_id) head = head->next;
+    if (head == NULL) return;
+    if (head->data.username == student_id) 
+    {
+        Node *tmp = head;
+        head = head->next;
+        delete tmp;
+    }
     else {
         Node *cur = head;
         while (cur->next != NULL && cur->next->data.username != student_id)
@@ -124,6 +130,7 @@ void Student_list::Print_list(ostream &fout) {
     Node *cur = head;
     while (cur != NULL) {
         cur->data.Print(fout);
+        cout << " - -\n";
         cur = cur->next;
     }
 }

@@ -12,6 +12,7 @@
 
 using namespace std;
 
+void Plus_one_week(string &);
 int Next_token(string &,string &);
 
 class CSV_helper{
