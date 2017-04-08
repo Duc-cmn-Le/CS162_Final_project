@@ -6,7 +6,8 @@ void Student_management_service::Export_scores_of_student(const string username)
     f.open("score.txt");
     string s;
     int i,j;
-    bool exist=false;
+    Score_list _list;
+    Score tmp;
     while (!f.eof())
     {
         f>>s;
@@ -14,19 +15,23 @@ void Student_management_service::Export_scores_of_student(const string username)
         j=s.find(',',i);
         if (s.substr(i,j-i)==username)
         {
-            cout<<"Course code: "<<s.substr(0,s.find(','));
-            cout<<"\nMidterm: ";
-            for(i=j+1;s[i]!=',';i++) cout<<s[i];
-            cout<<"\nLab: ";
-            for(j=i+1;s[j]!=',';j++) cout<<s[j];
-            cout<<"\nFinal: ";
-            for(i=j+1;i<s.size();i++) cout<<s[i];
-            cout<<"\n\n";
-            exist=true;
+            i=s.find(',',++j);
+            tmp.midterm=to_double(s.substr(j,i-j)); //Midterm
+            j=s.find(',',++i);
+            tmp.lab=to_double(s.substr(i,j-i)); //Lab
+            i=s.find(',',++j);
+            tmp._final=to_double(s.substr(j,i-j)); //Final
+            i=s.find(',');
+            tmp.course_code=s.substr(0,i); //Course code
+            tmp.student_id=username; //Student ID
+            j=s.find(',',++i);
+            tmp.year=to_int(s.substr(i,j-i)); //Year
+            i=s.find(',',++j);
+            tmp.semester=to_int(s.substr(j,i-j)); //Semester
+            _list.Add_to_last(tmp);
         }
     }
     f.close();
-    if (!exist) cout<<"This student is not found!\n\n";
 }
 void Student_management_service::Export_scores_of_course(const string course_id)
 {
@@ -34,25 +39,55 @@ void Student_management_service::Export_scores_of_course(const string course_id)
     f.open("score.txt");
     string s;
     int i,j;
-    bool exist=false;
+    Score_list _list;
+    Score tmp;
     while (!f.eof())
     {
         f>>s;
-        if (s.substr(0,s.find(','))==course_id)
+        i=s.find(',');
+        if (s.substr(0,i)==course_id)
         {
-            cout<<"Student ID: ";
-            i=s.find(',',s.find(',',s.find(',')+1)+1)+1;
-            for(j=i;s[j]!=',';j++) cout<<s[j];
-            cout<<"\nMidterm: ";
-            for(i=j+1;s[i]!=',';i++) cout<<s[i];
-            cout<<"\nLab: ";
-            for(j=i+1;s[j]!=',';j++) cout<<s[j];
-            cout<<"\nFinal: ";
-            for(i=j+1;i<s.size();i++) cout<<s[i];
-            cout<<"\n\n";
-            exist=true;
+            tmp.course_code=course_id; //Course code
+            j=s.find(',',++i);
+            tmp.year=to_int(s.substr(i,j-i)); //Year
+            i=s.find(',',++j);
+            tmp.semester=to_int(s.substr(j,i-j)); //Semester
+            j=s.find(',',++i);
+            tmp.student_id=s.substr(i,j-i); //Student ID
+            i=s.find(',',++j);
+            tmp.midterm=to_double(s.substr(j,i-j)); //Midterm
+            j=s.find(',',++i);
+            tmp.lab=to_double(s.substr(i,j-i)); //Lab
+            i=s.find(',',++j);
+            tmp._final=to_double(s.substr(j,i-j)); //Final
+            _list.Add_to_last(tmp);
         }
     }
     f.close();
-    if (!exist) cout<<"This course is not found!\n\n";
+}
+//Ham k thuoc class
+int to_int(const string s)
+{
+    int res=0;
+    short i;
+    for(i=0;i<s.size();i++) res=res*10+s[i]-48;
+    return res;
+}
+double to_double(const string s)
+{
+    double res=0;
+    short i;
+    for(i=0;i<s.size();i++)
+    if (s[i]!='.') res=res*10+s[i]-48;
+    else break;
+    if (i<s.size())
+    {
+        int tmp=1;
+        for(i=i+1;i<s.size();i++)
+        {
+            tmp*=10;
+            res+=double(s[i]-48)/tmp;
+        }
+    }
+    return res;
 }
