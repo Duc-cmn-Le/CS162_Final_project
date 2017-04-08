@@ -9,6 +9,8 @@
 #include <fstream>
 
 using namespace std;
+int to_int(const string);
+double to_double(const string );
 
 class Student_management_service{
 public:
@@ -17,8 +19,8 @@ public:
     void Import_schedules();
     void Import_score();
 
-//    void Export_scores_of_student(const User u);
-//    void Export_scores_of_course(const Course c);
+    void Export_scores_of_student(const string,ostream &);
+    void Export_scores_of_course(const string,ostream &);
     void Print_present(string,ostream &); 
     void Print_absent(string,ostream &);
 };

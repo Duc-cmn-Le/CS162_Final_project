@@ -24,7 +24,7 @@ void Score::Print(ostream &fout) {
     fout << "Course code: " << setw(_width+2) << course_code << '\n';
     fout << "Year: " << setw(_width+9) << year<< '\n';
     fout << "Semester: " << setw(_width+5) << semester << '\n';
-    fout << "Student ID: " << setw(_width+2) << student_id << '\n';
+    fout << "Student ID: " << setw(_width+3) << student_id << '\n';
     fout << "Midterm score: " << setw(_width) << midterm << '\n';
     fout << "Lab score: " << setw(_width+4) << lab << '\n';
     fout << "Final score: " << setw(_width+2) << _final << '\n';
@@ -71,6 +71,7 @@ void Score_list::Print_list(ostream &fout)
     Node_score *cur = head;
         while (cur != NULL) {
             cur->data.Print(fout);
+            fout << " - - \n";
             cur = cur->next;
         }
 }
