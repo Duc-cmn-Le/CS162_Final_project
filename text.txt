@@ -13,8 +13,8 @@ Student management service: cung cấp các function tương ứng để gọi, 
     + Import scores                     (finished)
     + Get score of student                  (testing)
     + Get score of course                   (testing)
-    + Get list of student who was present   (testing)
-    + Get list of student who was absent    (testing)
+    + Get list of student who was present   (finished)  
+    + Get list of student who was absent    (finished)
     + Check-in class (string studentID, string classCode)
 
 Users interface: 
