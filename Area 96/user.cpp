@@ -30,7 +30,12 @@ void User::Input() {
     cin >> s;
     cout << "Confirm your password ";
     while (cin >> ss) {
-        if (ss == s) {password = s; break;}
+        if (ss == s) {
+            Md5 md5;
+            md5.pass = s;
+            password = md5.Process(); 
+            break;
+        }
         cout << "Password is not matched\n";
     }   
     cout << "Class? ";

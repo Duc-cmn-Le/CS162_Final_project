@@ -1,6 +1,7 @@
 //Bao
 #ifndef _USER_H_
 #define _USER_H_
+#include "MD5.h"
 #include<iostream>
 #include<fstream>
 #include<cstring>
