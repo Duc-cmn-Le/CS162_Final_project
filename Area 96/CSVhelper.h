@@ -21,6 +21,7 @@ public:
     void Write_file(Course_list &,string);
     void Write_file(Score_list &,string);
     int Get_details(string,string,User &);
+    void Change_password(string username,string password);
 //    int Get_details(string,pair<string,string>,Presence &);
     /*
     Course Get_details(string,string);
