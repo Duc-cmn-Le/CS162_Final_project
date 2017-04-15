@@ -3,10 +3,10 @@
 
 void Plus_one_week (string &week)
 {
-        if (week == "9") week = "10";
-        else if (week == "19") week = "20";
-        else if (week.length() == 1) week[0]++;
-        else week[1]++;
+    if (week == "9") week = "10";
+    else if (week == "19") week = "20";
+    else if (week.length() == 1) week[0]++;
+    else week[1]++;
 }
 
 int Next_token(string &s,string &target) {

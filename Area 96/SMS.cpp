@@ -78,9 +78,8 @@ void Student_management_service::Export_scores_of_student(const string username,
     int i,j;
     Score_list _list;
     Score tmp;
-    while (!f.eof())
+    while (getline(f,s))
     {
-        f>>s;
         i=s.find(',',s.find(',',s.find(',')+1)+1)+1;
         j=s.find(',',i);
         if (s.substr(i,j-i)==username)
@@ -116,9 +115,8 @@ void Student_management_service::Export_scores_of_course(const string course_id,
     int i,j;
     Score_list _list;
     Score tmp;
-    while (!f.eof())
+    while (getline(f,s))
     {
-        f>>s;
         i=s.find(',');
         if (s.substr(0,i)==course_id)
         {
@@ -143,6 +141,7 @@ void Student_management_service::Export_scores_of_course(const string course_id,
     fout << "Score of course: " << course_id << endl;
     _list.Print_list(fout);
 }
+
 
 //Get list of student who was present
 void Student_management_service::Print_present (string course_code,ostream &fout)

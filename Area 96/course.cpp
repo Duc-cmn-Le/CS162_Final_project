@@ -1,5 +1,13 @@
 #include "course.h"
 
+int _Next_token(string &s,string &target) 
+{
+    if (week == "9") week = "10";
+    else if (week == "19") week = "20";
+    else if (week.length() == 1) week[0]++;
+    else week[1]++;
+}
+
 void Course::Input()
 {
     cout << "Course Code?\n";
@@ -25,6 +33,8 @@ void Course::Input()
     cout << "Date of week? Eg: monday, tuesday, ...\n";
     cin >> date_of_week;
 }
+
+
 
 void Course::Print(ostream &fout)
 {
@@ -90,6 +100,27 @@ void Course_list::Add_a_course()
     Add_tail(x);
 }
 
+void Course_list::Input_line_by_line(istream &fin) {
+    string S, s;
+    Course c;
+    while (getline(fin,S)) {
+        _Next_token(S,s);
+        c.course_code = s;
+        _Next_token(S,s);
+        c.year = s;
+        _Next_token(S,s);
+        c.semester = s;
+        _Next_token(S,s);
+        c.course_name = s;
+        _Next_token(S,s);
+        c.lecturer_name = s;
+        // Xu li date
+        // 
+        // Xu li time
+        //
+        c.date_of_week = S;
+    }
+}
 void Course_list::Print_list(ostream &fout)
 {
     Node_course* p = head;

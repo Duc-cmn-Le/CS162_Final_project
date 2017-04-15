@@ -5,6 +5,8 @@
 #include <cstring>
 using namespace std;
 
+int _Next_token(string &,string &);
+
 struct Date
 {
     int d, m, y;
@@ -45,6 +47,7 @@ public:
     void Add_a_course();
     void Delete_node(string s);
     void Delete_a_course();
+    void Input_line_by_line(istream &);
     void Print_list(ostream &);
     void Print_list_one_line(ostream &);
     void Make_empty();
