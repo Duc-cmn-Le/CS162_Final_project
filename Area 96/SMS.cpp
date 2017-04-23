@@ -80,6 +80,12 @@ void Student_management_service::Import_score() {
     CSV_helper Helper;
     Helper.Write_file(a,"score.txt");
 }
+// View list of course
+void Student_management_service::View_list_of_course() 
+{
+
+
+}
 
 //Get score of student
 
