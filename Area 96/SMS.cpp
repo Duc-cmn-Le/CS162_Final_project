@@ -411,3 +411,8 @@ void Student_management_service::Print_absent(string course_code,ostream &fout) 
 
 
 //Check-in class
+int Student_management_service::Check_in(string username,string course_code,string year,int semester)
+{
+
+
+}

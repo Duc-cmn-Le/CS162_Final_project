@@ -24,5 +24,6 @@ public:
     void Export_scores_of_course(const string,ostream &); // Finished - Gia Bao
     void Print_present(string,ostream &); // Finished - Van Nam 
     void Print_absent(string,ostream &); // Finished - Van Nam
+    int Check_in(string,string,string,int);
 };
 #endif
