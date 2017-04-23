@@ -5,7 +5,10 @@
 #include <cstring>
 using namespace std;
 
-int _Next_token(string &,string &);
+void _Next__token(string &,string &);
+void _Date_token(string &s,string &target);
+void _Time_token(string &s,string &target);
+
 
 struct Date
 {
@@ -16,6 +19,10 @@ struct Time
 {
     int s, m, h;
 };
+
+void Date_process(string &S, Date &d);
+
+void Time_process(string &S, Time &t);
 
 class Course
 {

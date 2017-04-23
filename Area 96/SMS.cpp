@@ -29,6 +29,30 @@ double to_double(const string s)
 }
 // Import courses
 
+void Student_management_service::Import_course() {
+    Course_list a;
+    cout << "Enter number of course\n";
+    int number;
+    cin >> number;
+    for (;number;number--) 
+        a.Add_a_course();
+    CSV_helper Helper;
+    Helper.Write_file(a,"course.txt");
+}
+
+// Import course from file
+void Student_management_service::Import_course_from_file() {
+    cout << "Enter file name (name.csv)\n";
+    string s;
+    cin >> s;
+    ifstream fin(s.c_str());
+    Course_list a;
+    a.Input_line_by_line(fin);
+    fin.close();
+    CSV_helper Helper;
+    Helper.Write_file(a,"course.txt");
+}
+
 //Import student list
 void Student_management_service::Import_student_list() {
     Student_list a;
@@ -39,17 +63,6 @@ void Student_management_service::Import_student_list() {
         a.Add_student_to_last();
     CSV_helper Helper;
     Helper.Write_file(a,"user.txt");
-}
-
-void Student_management_service::Import_course() {
-    Course_list a;
-    cout << "Enter number of course\n";
-    int number;
-    cin >> number;
-    for (;number;number--) 
-        a.Add_a_course();
-    CSV_helper Helper;
-    Helper.Write_file(a,"course.txt");
 }
 
 

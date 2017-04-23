@@ -1,11 +1,81 @@
 #include "course.h"
 
-int _Next_token(string &s,string &target) 
+void _Next__token(string &s,string &target) {
+    target = "";
+    int cnt = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i,cnt++)
+        if (*i == ',') {
+            target.insert(target.begin(),s.begin(),i);
+            s.erase(0,cnt+1);
+            return;
+        }
+    target = s;
+}
+
+void _Date_token(string &s,string &target) {
+    target = "";
+    int cnt = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i,cnt++)
+        if (*i == '/') {
+            target.insert(target.begin(),s.begin(),i);
+            s.erase(0,cnt+1);
+            return;
+        }
+    target = s;
+}
+
+void Date_process(string &S, Date &d)
 {
-    if (week == "9") week = "10";
-    else if (week == "19") week = "20";
-    else if (week.length() == 1) week[0]++;
-    else week[1]++;
+    string s;
+    int date;
+    _Date_token(S,s);
+    date = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i)
+        date = date*10 + int(char(*i)) - 48;
+    d.d = date;
+    _Date_token(S,s);
+    date = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i)
+        date = date*10 + int(char(*i)) - 48;
+    d.m = date;
+    date = 0;
+    for (string::iterator i=S.begin();i!=S.end();++i)
+        date = date*10 + int(char(*i)) - 48;
+    d.y = date;
+}
+
+void _Time_token(string &s,string &target) {
+    target = "";
+    int cnt = 0;
+    string n = "'";
+    for (string::iterator i=s.begin();i!=s.end();++i,cnt++)
+        if (*i == 'h' || *i == *(n.begin())) {
+            target.insert(target.begin(),s.begin(),i);
+            s.erase(0,cnt+1);
+            return;
+        }
+    target = s;
+}
+
+void Time_process(string &S, Time &t)
+{
+    string s;
+    int time;
+    _Time_token(S,s);
+    time = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i)
+        time = time*10 + int(char(*i)) - 48;
+    t.h = time;
+    _Time_token(S,s);
+    time = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i)
+        time = time*10 + int(char(*i)) - 48;
+    t.m = time;
+    time = 0;
+    S.erase(S.length()-2,S.length()-1);
+    for (string::iterator i=S.begin();i!=S.end();++i)
+        time = time*10 + int(char(*i)) - 48;
+    t.s = time;
 }
 
 void Course::Input()
@@ -104,21 +174,26 @@ void Course_list::Input_line_by_line(istream &fin) {
     string S, s;
     Course c;
     while (getline(fin,S)) {
-        _Next_token(S,s);
+        _Next__token(S,s);
         c.course_code = s;
-        _Next_token(S,s);
+        _Next__token(S,s);
         c.year = s;
-        _Next_token(S,s);
-        c.semester = s;
-        _Next_token(S,s);
+        _Next__token(S,s);
+        c.semester = int(s[0])-48;
+        _Next__token(S,s);
         c.course_name = s;
-        _Next_token(S,s);
+        _Next__token(S,s);
         c.lecturer_name = s;
-        // Xu li date
-        // 
-        // Xu li time
-        //
+        _Next__token(S,s);
+        Date_process(s,c.start_at);
+        _Next__token(S,s);
+        Date_process(s,c.end_at);
+        _Next__token(S,s);
+        Time_process(s,c.from);
+        _Next__token(S,s);
+        Time_process(s,c.to);
         c.date_of_week = S;
+        Add_tail(c);
     }
 }
 void Course_list::Print_list(ostream &fout)

@@ -15,6 +15,7 @@ double to_double(const string );
 class Student_management_service{
 public:
     void Import_course(); // Finished
+    void Import_course_from_file();
     void Import_student_list(); // Finished
     void Import_schedules();
     void Import_score();

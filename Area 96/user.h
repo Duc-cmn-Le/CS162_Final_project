@@ -10,6 +10,8 @@
 //
 using namespace std;
 
+int _Next_token(string &s,string &target);
+
 class User
 {
 public:
