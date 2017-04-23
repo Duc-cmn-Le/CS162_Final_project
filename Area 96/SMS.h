@@ -11,6 +11,9 @@
 using namespace std;
 int to_int(const string); // Gia Bao
 double to_double(const string ); // Gia Bao
+int Check_in_date(Date,Course); // Mai Trinh
+int Check_in_time(Time,Course); // Mai Trinh
+void Take_time(Date&,Time&,string&); // Mai Trinh
 
 class Student_management_service{
 public:
