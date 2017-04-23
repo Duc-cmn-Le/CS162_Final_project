@@ -27,8 +27,8 @@ double to_double(const string s)
     }
     return res;
 }
-// Import courses
 
+// Import courses - Cong Duc
 void Student_management_service::Import_course() {
     Course_list a;
     cout << "Enter number of course\n";
@@ -40,7 +40,7 @@ void Student_management_service::Import_course() {
     Helper.Write_file(a,"course.txt");
 }
 
-// Import course from file
+// Import course from file - Cong Duc
 void Student_management_service::Import_course_from_file() {
     cout << "Enter file name (name.csv)\n";
     string s;
@@ -53,7 +53,7 @@ void Student_management_service::Import_course_from_file() {
     Helper.Write_file(a,"course.txt");
 }
 
-//Import student list
+//Import student list - Cong Duc
 void Student_management_service::Import_student_list() {
     Student_list a;
     cout << "Enter number of student\n";
@@ -69,8 +69,8 @@ void Student_management_service::Import_student_list() {
 
 //Import schedules
 
-//Import scores
-void Student_management_service::Import_score() {
+//Import scores - Cong Duc
+void Student_management_service::Import_score() { 
     Score_list a;
     int number;
     cout << "Enter number of score\n";
@@ -80,15 +80,42 @@ void Student_management_service::Import_score() {
     CSV_helper Helper;
     Helper.Write_file(a,"score.txt");
 }
-// View list of course
-void Student_management_service::View_list_of_course() 
-{
 
-
+// View list of course - Mai Trinh
+void Student_management_service::View_list_of_course() {
+    string S, s;
+    Course c;
+    Course_list a;
+    filebuf fb;
+    fb.open ("course.txt",ios::in);
+    istream fin(&fb);
+    while (getline(fin,S)) {
+        _Next__token(S,s);
+        c.course_code = s;
+        _Next__token(S,s);
+        c.year = s;
+        _Next__token(S,s);
+        c.semester = int(s[0])-48;
+        _Next__token(S,s);
+        c.course_name = s;
+        _Next__token(S,s);
+        c.lecturer_name = s;
+        _Next__token(S,s);
+        Date_process(s,c.start_at);
+        _Next__token(S,s);
+        Date_process(s,c.end_at);
+        _Next__token(S,s);
+        Time_process(s,c.from);
+        _Next__token(S,s);
+        Time_process(s,c.to);
+        c.date_of_week = S;
+        a.Add_tail(c);
+    }
+    a.Print_list(cout);
+    fb.close();
 }
 
-//Get score of student
-
+//Get score of student - Gia Bao
 void Student_management_service::Export_scores_of_student(const string username,ostream &fout)
 {
     ifstream f;
@@ -124,8 +151,8 @@ void Student_management_service::Export_scores_of_student(const string username,
     fout << "Score of student " << username << endl;
     _list.Print_list(fout);
 }
-//Get score of course
 
+//Get score of course - Gia Bao
 void Student_management_service::Export_scores_of_course(const string course_id,ostream &fout)
 {
     ifstream f;
@@ -162,7 +189,7 @@ void Student_management_service::Export_scores_of_course(const string course_id,
 }
 
 
-//Get list of student who was present
+//Get list of student who was present - Van Nam
 void Student_management_service::Print_present (string course_code,ostream &fout)
 {
     fout << "   List of student who was present in class " << course_code << endl;
@@ -268,7 +295,7 @@ void Student_management_service::Print_present (string course_code,ostream &fout
     }
 }
 
-//Get list of student who was absent
+//Get list of student who was absent - Van Nam
 void Student_management_service::Print_absent(string course_code,ostream &fout) {
     fout << "   List of student absent in class " << course_code << endl;
     Student_list absent;

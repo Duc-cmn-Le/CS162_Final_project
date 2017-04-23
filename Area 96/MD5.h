@@ -21,11 +21,11 @@ class Md5
     static const size_t Load = (1 << 20);
     public:
     Md5();
-    string pass;
-    string Process();
-    void Update(unsigned char input[], uint64_t size_of_input);
-    void Padding(unsigned char digest[16]);
-    void Compression(unsigned char segment[64]);
+    string pass; // Mai Trinh
+    string Process(); // Mai Trinh
+    void Update(unsigned char input[], uint64_t size_of_input); // Mai Trinh
+    void Padding(unsigned char digest[16]); // Mai Trinh
+    void Compression(unsigned char segment[64]); // Mai Trinh
 };
 
 #endif // _MD5_H_

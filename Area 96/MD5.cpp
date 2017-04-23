@@ -9,7 +9,7 @@ Md5::Md5()
     bit_count = 0;
 }
 
-string Md5::Process()
+string Md5::Process() // Mai Trinh
 {
     istringstream iss(pass);
     unsigned char block[16];
@@ -33,7 +33,7 @@ string Md5::Process()
     return ss.str();
 }
 
-void Md5::Update(unsigned char *input, uint64_t size_of_input)
+void Md5::Update(unsigned char *input, uint64_t size_of_input) // Mai Trinh
 {
     unsigned int buffer_index = (bit_count / 8) % 64;
     bit_count += size_of_input * 8;
@@ -50,7 +50,7 @@ void Md5::Update(unsigned char *input, uint64_t size_of_input)
     memcpy(&buffer[buffer_index],&input[index],size_of_input-index);
 }
 
-void Md5::Compression(unsigned char segment[64])
+void Md5::Compression(unsigned char segment[64]) // Mai Trinh
 {
     static const uint32_t s_table[64] = {
         7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,
@@ -114,7 +114,7 @@ void Md5::Compression(unsigned char segment[64])
     memset(X,0,sizeof(X));
 }
 
-void Md5::Padding(unsigned char digest[16])
+void Md5::Padding(unsigned char digest[16]) // Mai Trinh
 {
     static unsigned char padding_buffer[64] = {0x80, 0x00};
     unsigned char bit_size[8];

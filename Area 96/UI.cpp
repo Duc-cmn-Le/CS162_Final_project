@@ -11,11 +11,13 @@ void User_interface::Program() {
 int User_interface::Login(string username,string password) {
     if (username == "httu" && password == "admin") {
         type = 1;
+        account_name = "httu"; 
         return true;
     }
     User u;
     CSV_helper csv;
     if (csv.Get_details("user.txt",username,u) && u.password==password) {
+        account_name = username;
         type = u.type; // gan gia tri cho type tuong ung voi user ma minh tim dc
         return true;
     }

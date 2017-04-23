@@ -9,6 +9,12 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
+    CSV_helper Helper;
+    Course c;
+    if (Helper.Get_details("course.txt","CS161","2015",1,c))
+        c.Print(cout);
+    else cout << "Deo tim thay\n";
+//    Service.View_list_of_course(); 
 //    Service.Import_course_from_file();
 //    Service.Export_scores_of_student("1651044",cout);
 //    Service.Export_scores_of_course("CS161",cout);

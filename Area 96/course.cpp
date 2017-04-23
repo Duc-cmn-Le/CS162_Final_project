@@ -202,6 +202,7 @@ void Course_list::Print_list(ostream &fout)
     while (p)
     {
         (p -> data).Print(fout);
+        fout << " - - \n";
         p = p -> next;
     }
 }

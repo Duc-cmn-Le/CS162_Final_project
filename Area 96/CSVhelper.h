@@ -12,16 +12,17 @@
 
 using namespace std;
 
-void Plus_one_week(string &);
-int Next_token(string &,string &);
+void Plus_one_week(string &); // Van Nam
+int Next_token(string &,string &); // Cong Duc
 
-class CSV_helper{
+class CSV_helper{ // Cong Duc
 public:
-    void Write_file(Student_list &,string);
-    void Write_file(Course_list &,string);
-    void Write_file(Score_list &,string);
-    int Get_details(string,string,User &);
-    void Change_password(string username,string password);
+    void Write_file(Student_list &,string); // Cong Duc
+    void Write_file(Course_list &,string); // Cong Duc
+    void Write_file(Score_list &,string); // Cong Duc
+    int Get_details(string,string,User &); // Cong Duc
+    int Get_details(string,string,string,int,Course &); // Cong Duc
+    void Change_password(string username,string password); // Van Nam
 //    int Get_details(string,pair<string,string>,Presence &);
     /*
     Course Get_details(string,string);
