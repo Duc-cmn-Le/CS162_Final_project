@@ -15,11 +15,11 @@ double to_double(const string );
 class Student_management_service{
 public:
     void Import_course(); // Finished
-    void Import_course_from_file();
+    void Import_course_from_file(); // Finished
     void Import_student_list(); // Finished
     void Import_schedules();
     void Import_score();
-
+    void View_list_of_course();
     void Export_scores_of_student(const string,ostream &);
     void Export_scores_of_course(const string,ostream &);
     void Print_present(string,ostream &); 
