@@ -7,6 +7,7 @@
 #include <cmath>
 #include <algorithm>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 int to_int(const string); // Gia Bao
@@ -14,6 +15,7 @@ double to_double(const string ); // Gia Bao
 int Check_in_date(Date,Course);
 int Check_in_time(Time,Course);
 void Take_time(Date&,Time&,string&);
+void Next_token_(string&,string&);
 
 class Student_management_service{
 public:

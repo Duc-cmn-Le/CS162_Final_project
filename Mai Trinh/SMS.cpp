@@ -1,11 +1,10 @@
 #include "SMS.h"
-#include <ctime>
 
 void Next_token_(string &s,string &target) {
     target = "";
     int cnt = 0;
     for (string::iterator i=s.begin();i!=s.end();++i,cnt++)
-        if (*i == ',') {
+        if (*i == ' ') {
             target.insert(target.begin(),s.begin(),i);
             s.erase(0,cnt+1);
             return;
@@ -78,12 +77,13 @@ void Take_time(Date &d, Time &t, string &wday) {
     }
     Next_token_(S,s);
     d.d = (int(s[0])-48)*10 + s[1] - 48;
-    Next_token(S,s);
+    Next_token_(S,s);
     t.h = (int(s[0])-48)*10 + s[1] - 48;
     t.m = (int(s[3])-48)*10 + s[4] - 48;
     t.s = (int(s[6])-48)*10 + s[7] - 48;
     Next_token_(S,s);
     d.y = 0;
+    S.erase(S.length()-1,S.length()-1);
     for (string::iterator i=S.begin();i!=S.end();++i)
         d.y = d.y*10 + int(char(*i)) - 48;
 }
