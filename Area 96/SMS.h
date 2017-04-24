@@ -7,6 +7,7 @@
 #include <cmath>
 #include <algorithm>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 int to_int(const string); // Gia Bao

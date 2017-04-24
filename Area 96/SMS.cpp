@@ -115,7 +115,7 @@ void Take_time(Date &d, Time &t, string &wday) {
     cur = localtime(&tme);
     string S = asctime(cur);
     string s;
-    Next_token(S,s);
+    Next_token(S,s,' ');
     switch (s[2]) {
         case 'n':
             if (s[1] == 'u') wday = "Sunday";
@@ -136,7 +136,7 @@ void Take_time(Date &d, Time &t, string &wday) {
         case 't':
             wday = "Saturday";
     }
-    Next_token(S,s);
+    Next_token(S,s,' ');
     switch (s[2]) {
         case 'r':
             if (s[1] == 'a') d.m = 3;
@@ -171,17 +171,17 @@ void Take_time(Date &d, Time &t, string &wday) {
             d.m = 12;
             break;
     }
-    Next_token(S,s);
-    d.d = (int(s[0])-48)*10 + s[1] - 48;
-    Next_token(S,s);
-    t.h = (int(s[0])-48)*10 + s[1] - 48;
-    t.m = (int(s[3])-48)*10 + s[4] - 48;
-    t.s = (int(s[6])-48)*10 + s[7] - 48;
-    Next_token(S,s);
+    Next_token(S,s,' ');
+    d.d = (s[0]-'0')*10 + s[1] - '0';
+    Next_token(S,s,' ');
+    t.h = (s[0]-'0')*10 + s[1] - '0';
+    t.m = (s[3]-'0')*10 + s[4] - '0';
+    t.s = (s[6]-'0')*10 + s[7] - '0';
+    Next_token(S,s,' ');
     d.y = 0;
     S.erase(S.length()-1,S.length()-1);
     for (string::iterator i=S.begin();i!=S.end();++i)
-        d.y = d.y*10 + int(char(*i)) - 48;
+        d.y = d.y*10 + int(char(*i)) - '0';
 }
 
 // Import courses - Cong Duc
@@ -576,7 +576,7 @@ int Student_management_service::Check_in(string username,string course_code,stri
         Time t;
         string wday;
         Take_time(d,t,wday);
-        return (wday == c.date_of_week)*(Check_in_date(d,c))*(Check_in_time(t,c));
+        return (wday == c.date_of_week) && (Check_in_date(d,c)) && (Check_in_time(t,c));
     }
     return 0;
 }

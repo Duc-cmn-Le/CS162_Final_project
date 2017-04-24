@@ -24,6 +24,18 @@ int Next_token(string &s,string &target) {
     return false;
 }
 
+int Next_token(string &s,string &target,char c) {
+    target = "";
+    int cnt = 0;
+    for (string::iterator i=s.begin();i!=s.end();++i,cnt++)
+        if (*i == c) {
+            target.insert(target.begin(),s.begin(),i);
+            s.erase(0,cnt+1);
+            return true;
+        }
+    target = s;
+    return false;
+}
 // Cong Duc
 void CSV_helper::Write_file(Student_list &L,string file_name) {
     ofstream fout(file_name.c_str(),fstream::app);

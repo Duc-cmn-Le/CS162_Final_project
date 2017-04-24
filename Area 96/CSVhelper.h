@@ -14,6 +14,7 @@ using namespace std;
 
 void Plus_one_week(string &); // Van Nam
 int Next_token(string &,string &); // Cong Duc
+int Next_token(string &,string &,char); // Cong Duc
 
 class CSV_helper{ // Cong Duc
 public:
