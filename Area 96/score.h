@@ -14,8 +14,7 @@ public:
     string student_id;
     int year;
     int semester;
-    int type;
-    double mark;
+    double midterm, lab, _final;
 public:
     void Input();
     void Print(ostream &);

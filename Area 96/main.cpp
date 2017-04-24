@@ -9,7 +9,7 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
-     
+    cout << Service.Check_in("ldcduc","AA123","2017",3);
 //    Service.View_list_of_course(); 
 //    Service.Import_course_from_file();
 //    Service.Export_scores_of_student("1651044",cout);
