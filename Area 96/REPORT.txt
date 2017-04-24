@@ -1,18 +1,18 @@
-     198     479    4900 CSVhelper.cpp
+     224     536    5534 CSVhelper.cpp
      131     500    4233 MD5.cpp
-     693    2313   20693 SMS.cpp
+     799    2659   23848 SMS.cpp
       64     243    2160 UI.cpp
-     294     944    7103 course.cpp
-      53     112    1344 main.cpp
+     341    1097    8374 course.cpp
+      57     122    1512 main.cpp
       15      35     346 presence.cpp
-      98     300    2149 score.cpp
+      97     295    2073 score.cpp
      303     800    7097 user.cpp
-      36     106    1056 CSVhelper.h
+      37     111    1124 CSVhelper.h
       33     108     786 MD5.h
-      36     145    1285 SMS.h
+      38     158    1386 SMS.h
       17      36     352 UI.h
-      63     176    2180 course.h
+      67     191    2451 course.h
       17      28     214 presence.h
-      43      75     696 score.h
+      44      75     697 score.h
       57     147    1783 user.h
-    2151    6547   58377 total
+    2341    7141   63970 total

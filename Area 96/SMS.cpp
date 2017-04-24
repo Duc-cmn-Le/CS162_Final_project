@@ -784,7 +784,7 @@ void Student_management_service::Print_absent(string course_code,ostream &fout) 
 
 
 //Check-in class
-int Student_management_service::Check_in(string username,string course_code,string year,int semester) {
+int Student_management_service::Is_ok_check_in(string username,string course_code,string year,int semester) {
     CSV_helper csv;
     Course c;
     string file_name = "course.txt";

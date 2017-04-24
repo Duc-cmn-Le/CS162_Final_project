@@ -62,3 +62,12 @@ void User_interface::Menu_display(string role) {
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
     }
 }
+
+// Change:wq
+//
+
+void User_interface::Change_password(string username,string password) 
+{
+
+
+}

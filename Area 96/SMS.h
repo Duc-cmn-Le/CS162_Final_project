@@ -33,6 +33,6 @@ public:
     void Export_scores_of_course(const string,ostream &); 
     void Print_present(string,ostream &); // Finished - Van Nam 
     void Print_absent(string,ostream &); // Finished - Van Nam
-    int Check_in(string,string,string,int);
+    int Is_ok_check_in(string,string,string,int);
 };
 #endif

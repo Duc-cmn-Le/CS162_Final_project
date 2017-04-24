@@ -14,4 +14,5 @@ public:
     int Login(string,string);
     void Logout();
     void Menu_display(string);
+    void Change_password(string,string);
 };

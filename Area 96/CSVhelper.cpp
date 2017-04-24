@@ -6,6 +6,9 @@ void Plus_one_week (string &week)
 {
     if (week == "9") week = "10";
     else if (week == "19") week = "20";
+    else if (week == "29") week = "30";
+    else if (week == "39") week = "40";
+    else if (week == "49") week = "50";
     else if (week.length() == 1) week[0]++;
     else week[1]++;
 }
