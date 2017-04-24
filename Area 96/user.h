@@ -47,6 +47,7 @@ public:
     void List_all_student_of_class(string,string &);            // Cong Duc
     void List_all_student_of_course(string,string,int);         // Cong Duc 
     void Delete_node(string);                                   // Cong Duc
+    void Input_line_by_line(istream &);                         // Cong Duc
     void Print_list(ostream &);                                 // Cong Duc
     void Print_list_one_line(ostream &);                        // Cong Duc
     void Make_empty();                                          // Cong Duc

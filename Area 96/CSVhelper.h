@@ -18,6 +18,7 @@ int Next_token(string &,string &,char); // Cong Duc
 
 class CSV_helper{ // Cong Duc
 public:
+    void CSV_reform(string);                        // Cong Duc
     void Write_file(Student_list &,string); // Cong Duc
     void Write_file(Course_list &,string); // Cong Duc
     void Write_file(Score_list &,string); // Cong Duc

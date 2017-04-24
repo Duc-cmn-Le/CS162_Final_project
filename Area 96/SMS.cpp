@@ -199,13 +199,15 @@ void Student_management_service::Import_course() {
 // Import course from file - Cong Duc
 void Student_management_service::Import_course_from_file() {
     cout << "Enter file name (name.csv)\n";
-    string s;
-    cin >> s;
-    ifstream fin(s.c_str());
+    cin.ignore();
+    string file_name;
+    getline(cin,file_name);
+        CSV_helper Helper;
+        Helper.CSV_reform(file_name);
+    ifstream fin(file_name.c_str());
     Course_list a;
     a.Input_line_by_line(fin);
     fin.close();
-    CSV_helper Helper;
     Helper.Write_file(a,"course.txt");
 }
 
@@ -223,9 +225,21 @@ void Student_management_service::Import_student_list() {
 
 // Import class from file - Cong Duc
 void Student_management_service::Import_class_from_file() 
-{
-    
-
+{ 
+    string class_code;
+    cout << "Enter class code\n";
+    cin >> class_code;
+    cin.ignore();
+    cout << "Enter file name (name.csv)\n";
+    string file_name;
+    getline(cin,file_name);
+        CSV_helper Helper;
+        Helper.CSV_reform(file_name);
+    ifstream fin(file_name.c_str());
+    Student_list a;
+    a.Input_line_by_line(fin);
+    fin.close();
+    Helper.Write_file(a,"user.txt");
 }
 
 //Import scores - Cong Duc

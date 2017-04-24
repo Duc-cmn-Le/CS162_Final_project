@@ -224,6 +224,30 @@ void Student_list::Delete_node(string student_id) {
     }
 }
 
+// Input line by line - Cong Duc
+void Student_list::Input_line_by_line(istream &fin) 
+{
+    string S, s;
+    User u;
+    while (getline(fin,S)) {
+        _Next_token(S,s); 
+        u.username = s;
+        if (u.username[0] < '0' || u.username[0] > '9') continue;
+        _Next_token(S,s);
+        u.full_name = s;
+        _Next_token(S,s);
+        u.email = s;
+        _Next_token(S,s);
+        u.mobile_phone = s;
+        u.type = 0;
+        Md5 md5;
+        md5.pass = u.username;
+        u.password = md5.Process();
+        u._class = S; 
+        Add_to_last(u);
+    }
+}
+
 // Print list - Cong Duc
 
 void Student_list::Print_list(ostream &fout) {

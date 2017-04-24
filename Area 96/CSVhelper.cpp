@@ -36,6 +36,13 @@ int Next_token(string &s,string &target,char c) {
     target = s;
     return false;
 }
+
+// Cong Duc
+void CSV_helper::CSV_reform(string file_name) 
+{
+    system(("tr '\r' '\n' < "+file_name+" > "+file_name+"2").c_str());
+    system(("mv "+file_name+"2 "+file_name).c_str());
+}
 // Cong Duc
 void CSV_helper::Write_file(Student_list &L,string file_name) {
     ofstream fout(file_name.c_str(),fstream::app);
