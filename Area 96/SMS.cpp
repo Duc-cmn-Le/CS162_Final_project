@@ -199,7 +199,6 @@ void Student_management_service::Import_course() {
 // Import course from file - Cong Duc
 void Student_management_service::Import_course_from_file() {
     cout << "Enter file name (name.csv)\n";
-    cin.ignore();
     string file_name;
     getline(cin,file_name);
         CSV_helper Helper;

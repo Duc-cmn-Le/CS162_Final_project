@@ -244,8 +244,8 @@ void Course_list::Add_a_course()
 void Course_list::Input_line_by_line(istream &fin) {
     string S, s;
     Course c;
+    getline(fin,S);
     while (getline(fin,S)) {
-        if (S[0] == 'C' || S[0] == 'c') continue;
         _Next__token(S,s);
         c.course_code = s;
         _Next__token(S,s);
