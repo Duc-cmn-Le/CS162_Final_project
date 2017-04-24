@@ -1,5 +1,8 @@
 #include "course.h"
 
+
+
+
 void _Next__token(string &s,string &target) {
     target = "";
     int cnt = 0;
@@ -10,6 +13,29 @@ void _Next__token(string &s,string &target) {
             return;
         }
     target = s;
+}
+
+int Get_details(string file_name,string username,User &res) {
+    ifstream fin(file_name.c_str());
+    string S, s;
+    while (getline(fin,S)) {
+        _Next__token(S,s);
+        if (s != username) continue;
+        res.username = s;
+        _Next__token(S,s);
+        res.full_name = s;
+        _Next__token(S,s);
+        res.email = s;
+        _Next__token(S,s);
+        res.mobile_phone = s;
+        _Next__token(S,s);
+        res.type  = s[0]-'0';
+        _Next__token(S,s);
+        res.password = s;
+        res._class = S;
+        return true;
+    }
+    return false;
 }
 
 // Check Leap year - Mai Trinh
@@ -212,6 +238,19 @@ Course_list::~Course_list()
         Node_course* p = head;
         head = head -> next;
         delete p;
+    }
+}
+
+// Create user of lecturer - Cong Duc
+void Course_list::Create_lecturer(string user_name) 
+{
+    User u;
+    if (Get_details("user.txt",user_name,u) == 0) {
+        ofstream fo("user.txt",ios::app);
+        fo << user_name << ", ," << user_name << "@apcs.vn, 2";
+
+        fo << ", ";
+        fo.close();
     }
 }
 

@@ -8,15 +8,6 @@ using namespace std;
 int main() {
     User_interface UI;
     UI.Program();
-    /*
-    Md5 md5;
-    md5.pass = "1651044";
-    cout << md5.Process() << '\n';
-    User u;
-    CSV_helper csv;
-    csv.Get_details("user.txt","1651044",u);
-    cout << u.password;;
-    */
     return 0;
 }
 

@@ -68,8 +68,8 @@ void CSV_helper::Write_file(Score_list &L,string file_name) {
 }
 
 // Cong Duc
-int CSV_helper::Get_details(string file_type,string username,User &res) {
-    ifstream fin(file_type.c_str());
+int CSV_helper::Get_details(string file_name,string username,User &res) {
+    ifstream fin(file_name.c_str());
     string S, s;
     while (getline(fin,S)) {
         Next_token(S,s);

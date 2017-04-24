@@ -12,9 +12,9 @@ User_interface::User_interface()
 void User_interface::Program() {
     string username, password;
     while (1) {
-        cout << "Username: ";
+        cout << "   USERNAME: ";
         cin >> username;
-        cout << "Password: ";
+        cout << "   PASSWORD: ";
         cin >> password;
         if (Login(username,password) == 0) continue;
         Menu(role[type]);
@@ -85,7 +85,7 @@ void User_interface::Menu(string role) {
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=15;i<=17;++i)
             cout << setw(10) << i-12 << setw(_width) << s[i] << '\n';
-        while (cin >> flag) 
+        while ((cout << " Enter option\n") && (cin >> flag))
         switch(flag)
         {
             case 0:
@@ -118,7 +118,7 @@ void User_interface::Menu(string role) {
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=3;i<=10;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
-        while ((cout << "Enter option\n") && (cin >> flag))
+        while ((cout << " Enter option\n") && (cin >> flag))
         switch(flag)
         {
             case 0:
@@ -165,7 +165,7 @@ void User_interface::Menu(string role) {
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=11;i<=14;++i)
             cout << setw(10) << i-8 << setw(_width) << s[i] << '\n';
-        while (cin >> flag) 
+        while ((cout << " Enter option\n") && (cin >> flag))
         switch(flag)
         {
             case 0:

@@ -1,9 +1,12 @@
 #ifndef _COURSE_H_
 #define _COURSE_H_
 
+#include "user.h"
 #include <iostream>
 #include <cstring>
 using namespace std;
+
+int Get_details(string file_name,string user_name,User &res);               // Cong Duc
 
 bool LeapYear(int);                                                         // Mai Trinh
 int nth(int,int,int);                                                       // Mai Trinh
@@ -54,6 +57,7 @@ class Course_list
 public:
     Course_list() {head = NULL;};
     ~Course_list();                                                         // Mai Trinh 
+    void Create_lecturer(string s);                                         // Cong Duc
     void Add_tail(Course x);                                                // Mai Trinh
     void Add_a_course();                                                    // Mai Trinh
     void Delete_node(string s);                                             // Mai Trinh
