@@ -20,6 +20,7 @@ public:
     void Input();
     void Print(ostream &);
     void Print_one_line(ostream &);
+    void Print_one_line_(ostream &);
 };
 
 class Node_score
@@ -39,6 +40,7 @@ public:
     void Add_score_to_last();
     void Print_list(ostream &);
     void Print_list_one_line(ostream &);
+    void Print_list_one_line_(ostream &);
     ~Score_list();
 };
 #endif

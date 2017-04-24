@@ -8,7 +8,10 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
-    Service.View_score_of("1651044");
+    ofstream fout("OUTPUT.csv");
+    Service.Export_score_of_course(fout);
+    fout.close();
+//    Service.View_score_of("1651044");
 //    Service.Edit_score();
 //    Service.Import_score_from_file();
 //    Service.Import_class_from_file();

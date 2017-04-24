@@ -595,6 +595,46 @@ void Student_management_service::View_score_of(string student_id)
     cout<<"Midterm: "<<midterm<<"\nLab: "<<lab<<"\nFinal: "<<_final<<'\n';
 }
 
+// Export score of course - Gia Bao
+void Student_management_service::Export_score_of_course(ostream &fout) 
+{
+    string course_code, year; int semester, type;
+    Score sc;
+    cout << "Enter course code\n";
+    cin >> sc.course_code;
+    cout << "Enter academic year\n";
+    cin >> sc.year;
+    cout << "Enter semester\n";
+    cin >> sc.semester;
+        Course tmp;
+        CSV_helper Helper;
+    if (Helper.Get_details("course.txt",sc.course_code,sc.year,sc.semester,tmp) == 0) {
+        cout << "This course does not exist in system database\n";
+        return;
+    }
+    cout << "Enter type of exam (0 - midterm, 1 - lab, 2 - final)\n";
+    cin >> sc.type;
+    ifstream fin("score.txt");
+    string S, s;
+    Score_list a;
+    while (getline(fin,S)) {
+        Next_token(S,s);
+        if (s != sc.course_code) continue;
+        Next_token(S,s);
+        if (s != sc.year) continue;
+        Next_token(S,s);
+        if (to_int(s) != sc.semester) continue;
+        Next_token(S,sc.student_id);
+        Next_token(S,s);
+        if (to_int(s) != sc.type) continue;
+        sc.mark = to_double(S);
+        a.Add_to_last(sc);
+    }
+    if (fout.rdbuf() == cout.rdbuf()) 
+        a.Print_list(fout);
+    else a.Print_list_one_line_(fout);
+}
+
 /*
 
 //Get score of student - Gia Bao

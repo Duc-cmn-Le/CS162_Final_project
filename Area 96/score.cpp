@@ -24,10 +24,10 @@ void Score::Print(ostream &fout) {
     fout << "Year: " << setw(_width+9) << year<< '\n';
     fout << "Semester: " << setw(_width+5) << semester << '\n';
     fout << "Student ID: " << setw(_width+3) << student_id << '\n';
-    if (type == 0) cout << "Midterm ";
-    if (type == 1) cout << "Lab ";
-    if (type == 2) cout << "Final ";
-    fout << "Mark: " << setw(_width+4) << mark << '\n';
+    if (type == 0) cout << "Midterm\n";
+    if (type == 1) cout << "Lab\n";
+    if (type == 2) cout << "Final\n";
+    fout << "Mark: " << setw(_width+9) << mark << '\n';
 }
 
 void Score::Print_one_line(ostream &fout) {
@@ -36,6 +36,17 @@ void Score::Print_one_line(ostream &fout) {
     fout << semester << ',';
     fout << student_id << ',';
     fout << type << ',';
+    fout << mark;
+}
+
+void Score::Print_one_line_(ostream &fout) {
+    fout << course_code << ',';
+    fout << year << ',';
+    fout << semester << ',';
+    fout << student_id << ',';
+    if (type == 0) fout << "Midterm,";
+    else if (type == 1) fout << "Lab,";
+    else fout << "Final,";
     fout << mark;
 }
 
@@ -85,6 +96,16 @@ void Score_list::Print_list_one_line(ostream &fout)
     }
 }
 
+void Score_list::Print_list_one_line_(ostream &fout)
+{
+    fout << "Course code,Year,Semester,Student ID,Exam,Mark\n";
+    Node_score *cur = head;
+    while (cur != NULL) {
+        cur->data.Print_one_line_(fout);
+        fout << '\n';
+        cur = cur->next;
+    }
+}
 Score_list::~Score_list()
 {
     Node_score *tmp;
