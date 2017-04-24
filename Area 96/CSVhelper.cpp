@@ -150,78 +150,35 @@ int CSV_helper::Is_student_in_course(string student_id,string course_code,string
 }
 
 // Change password - Van Nam
-/*
-void Change_password(string username, string password)
-{
-    ifstream filein;
-    ofstream fileout;
-    filein.open ("user.txt");
-    fileout.open ("user_out.txt");
-    //	string line;
-    string usn, tmp;
-    char* line_c= new char [100];
-    int swi= 0, i= 0;
-    bool check= false;
-    
-    while (!filein.eof ())
-    {
-        if (i!=0) fileout << endl;
-        i++;
-        filein.getline (line_c, 200);
-        //		cout << line_c << endl;
-        string line(line_c);
-        //		cout << line << endl;
-        swi= __Next_token (line, usn);
-        if (usn!= username)
-            fileout << usn << ',' << line;
-        else
-        {
-            fileout << usn << ',';
-            for (int i= 0; i< 4; i++)
-            {
-                swi= __Next_token (line, tmp);
-                fileout << tmp << ',';
-            }
-            fileout << password << ',';
-            swi= __Next_token (line, tmp);
-            swi= __Next_token (line, tmp);
-            fileout << tmp;
-            check= true;
+void CSV_helper::Change_password(string username,string password) {
+    filebuf fb, fbnew;
+    fb.open ("user.txt",ios::in);
+    fbnew.open ("user_new.txt",ios::out);
+    istream fin(&fb);
+    ostream fnew(&fbnew);
+    string S, s;
+    while (getline(fin,S)) {
+        Next_token(S,s);
+        fnew << s << ",";
+        if (s != username) {
+            fnew << S << endl;
+            continue;
         }
+        Md5 hsh;
+        hsh.pass = password;
+        Next_token(S,s);
+        fnew << s << ",";
+        Next_token(S,s);
+        fnew << s << ",";
+        Next_token(S,s);
+        fnew << s << ",";
+        Next_token(S,s);
+        fnew << s << ",";
+        fnew << hsh.Process() << ",";
+        Next_token(S,s);
+        fnew << S << endl;
     }
-    filein.close ();
-    fileout.close ();
-    
-    // File control
-    system("mv user_out.txt user.txt")
-    return check;
-    delete []line_c;
+    fb.close();
+    fbnew.close();
+    system("mv user_new.txt user.txt");
 }
-*/
-/*
-Presence CSV_helper::Get_details(string file_name,pair<string,string> primary_key,Presence &res) {
-    freopen(file_name.c_str(),"r",stdin);
-    string S, s, s_code;
-    int year, semester, week;
-    while (getline(cin,S)) {
-        Next_token(S,s_code);
-        if (s_code != primary_key.first) continue;
-
-    }
-}
-*/
-
-/*
-
-Course CSVhelper::Get_details(string file_type,string course_code) {
-
-}
-
-Presence CSVhelper::Get_details(string file_type,pair<string,string> primary_key) {
-
-}
-
-Score CSVhelper::Get_details(string file_type,pair<string,string> primary_key) {
-
-}
-*/

@@ -12,7 +12,7 @@ void User_interface::Program() {
         cout << "Password: ";
         cin >> password;
         if (Login(username,password) == 0) continue;
-        Menu(role);
+        Menu(role[type]);
     }
 }
 
@@ -64,6 +64,8 @@ void User_interface::Menu(string role) {
     string file_name;
     int flag;
     int _width = 100;
+    ifstream fi;
+    ofstream fo;
     if (role == "student") {
         for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
@@ -112,7 +114,7 @@ void User_interface::Menu(string role) {
                 break;
             case 1:
                 return;
-            case 2;
+            case 2:
 
                 break;
             case 3:
@@ -137,7 +139,7 @@ void User_interface::Menu(string role) {
                 Service.Show_list_of_student_in_class();
                 break;
             case 10:
-                Service.Show_list_of_student_in_course()
+                Service.Show_list_of_student_in_course();
                 break;
             default:
                 cout << "Invalid number\n";
@@ -165,7 +167,7 @@ void User_interface::Menu(string role) {
             case 3:
                 cout << "Enter csv file\n";
                 cin >> file_name;
-                ofstream fo(file_name.c_str());
+                fo.open(file_name.c_str());
                 Service.Export_score_of_course(fo);
                 fo.close();
                 break;

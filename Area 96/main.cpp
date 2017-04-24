@@ -8,6 +8,8 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
+    CSV_helper Helper;
+    Helper.Change_password("1651044","vietnam0");
 //    Service.View_checkin_of_course("1651044");
 //    Service.View_score_of("1651044");
 //    Service.Edit_score();
