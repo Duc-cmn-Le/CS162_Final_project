@@ -544,6 +544,57 @@ void Student_management_service::Edit_score()
     system("mv score_new.txt score.txt");
 }
 
+// View score of a student
+void Student_management_service::View_score_of(string student_id)
+{
+    string course_code,year;
+    int semester;
+    cout<<"Enter course code: ";
+    cin>>course_code;
+    cout<<"Enter year: ";
+    cin>>year;
+    cout<<"Enter semester: ";
+    cin>>semester;
+    CSV_helper csv;
+    Course Tmp;
+    if (csv.Get_details("course.txt",course_code,year,semester,Tmp)==0)
+    {
+        cout<<"This course does not exist!\n";
+        return;
+    }
+    if (csv.Is_student_in_course(student_id,course_code,year,semester)==0)
+    {
+        cout<<"This student does not exist in this course!\n";
+        return;
+    }
+    ifstream f;
+    f.open("score.txt");
+    string s,p;
+    string midterm="0",lab="0",_final="0";
+    Score tmp;
+    while (getline(f,s))
+    {
+        Next_token(s,p);
+        tmp.course_code=p;
+        Next_token(s,p);
+        tmp.year=p;
+        Next_token(s,p);
+        tmp.semester=to_int(p);
+        Next_token(s,p);
+        tmp.student_id=p;
+        if (tmp.course_code==course_code && tmp.year==year && tmp.semester==semester && tmp.student_id==student_id)
+        {
+            Next_token(s,p);
+            if (p=="0") midterm=s;
+            else if (p=="1") lab=s;
+            else _final=s;
+//            if (midterm!="" && lab!="" && _final!="") break;
+        }
+    }
+    f.close();
+    cout<<"Midterm: "<<midterm<<"\nLab: "<<lab<<"\nFinal: "<<_final<<'\n';
+}
+
 /*
 
 //Get score of student - Gia Bao
