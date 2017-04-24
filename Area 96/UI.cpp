@@ -60,13 +60,15 @@ void User_interface::Menu(string role) {
         "View my check in history in a course",                 // 16
         "View my score in a course"                             // 17
     };
+    Student_management_service Service;
+    string file_name;
     int flag;
     int _width = 100;
     if (role == "student") {
         for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=15;i<=17;++i)
-            cout << setw(10) << i-13 << setw(_width) << s[i] << '\n';
+            cout << setw(10) << i-12 << setw(_width) << s[i] << '\n';
         while (cin >> flag) 
         switch(flag)
         {
@@ -74,31 +76,78 @@ void User_interface::Menu(string role) {
                 for (int i=0;i<=1;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 for (int i=15;i<=17;++i)
-                    cout << setw(10) << i-13 << setw(_width) << s[i] << '\n';
+                    cout << setw(10) << i-12 << setw(_width) << s[i] << '\n';
                 break;
+            case 1:
+                return;
+            case 2:
+
+                break;
+            case 3:
+                // Checkin
+                break;
+            case 4:
+                Service.View_checkin_of_course(account_name);
+                break;
+            case 5:
+                Service.View_score_of(account_name);
+                break;
+            default:
+                cout << "Invalid number\n";
         }
     }
     else if (role == "staff") {
         for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=3;i<=10;++i)
-            cout << setw(10) << i-1 << setw(_width) << s[i] << '\n';
-        while (cin >> flag) 
+            cout << setw(10) << i << setw(_width) << s[i] << '\n';
+        while ((cout << "Enter option\n") && (cin >> flag))
         switch(flag)
         {
             case 0:
                 for (int i=0;i<=1;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 for (int i=3;i<=10;++i)
-                    cout << setw(10) << i-1 << setw(_width) << s[i] << '\n';
+                    cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 break;
+            case 1:
+                return;
+            case 2;
+
+                break;
+            case 3:
+                Service.Import_course();
+                break;
+            case 4:
+                Service.Import_course_from_file(); 
+                break;
+            case 5:
+                Service.View_list_of_course();
+                break;
+            case 6:
+                Service.Assign_one_class();
+                break;
+            case 7:
+                Service.Assign_one_student();
+                break;
+            case 8:
+                Service.Import_class_from_file(); 
+                break;
+            case 9:
+                Service.Show_list_of_student_in_class();
+                break;
+            case 10:
+                Service.Show_list_of_student_in_course()
+                break;
+            default:
+                cout << "Invalid number\n";
         }
     }
     else {
         for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=11;i<=14;++i)
-            cout << setw(10) << i-9 << setw(_width) << s[i] << '\n';
+            cout << setw(10) << i-8 << setw(_width) << s[i] << '\n';
         while (cin >> flag) 
         switch(flag)
         {
@@ -106,8 +155,31 @@ void User_interface::Menu(string role) {
                 for (int i=0;i<=1;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 for (int i=11;i<=14;++i)
-                    cout << setw(10) << i-9 << setw(_width) << s[i] << '\n';
+                    cout << setw(10) << i-8 << setw(_width) << s[i] << '\n';
                 break;
+            case 1:
+                return;
+            case 2:
+
+                break;
+            case 3:
+                cout << "Enter csv file\n";
+                cin >> file_name;
+                ofstream fo(file_name.c_str());
+                Service.Export_score_of_course(fo);
+                fo.close();
+                break;
+            case 4:
+                Service.Export_score_of_course(cout);
+                break;
+            case 5:
+                Service.Import_score_from_file();
+                break;
+            case 6:
+                Service.Edit_score();
+                break;
+            default:
+                cout << "Invalid number\n";
         }
     }
 }
