@@ -9,14 +9,13 @@ void Score::Input() {
     cin >> year;
     cout << "Semester:\n ";
     cin >>  semester;
+    cin.ignore();
     cout << "Student ID:\n ";
     cin >> student_id;
-    cout << "Midterm score:\n ";
-    cin >> midterm;
-    cout << "Lab score:\n ";
-    cin >> lab;
-    cout << "Final score:\n ";
-    cin >> _final;
+    cout << "Type (midterm - 0, lab - 1, final 2)\n ";
+    cin >> type;
+    cout << "Mark:\n ";
+    cin >> mark;
 }
 
 void Score::Print(ostream &fout) {
@@ -25,9 +24,10 @@ void Score::Print(ostream &fout) {
     fout << "Year: " << setw(_width+9) << year<< '\n';
     fout << "Semester: " << setw(_width+5) << semester << '\n';
     fout << "Student ID: " << setw(_width+3) << student_id << '\n';
-    fout << "Midterm score: " << setw(_width) << midterm << '\n';
-    fout << "Lab score: " << setw(_width+4) << lab << '\n';
-    fout << "Final score: " << setw(_width+2) << _final << '\n';
+    if (type == 0) cout << "Midterm ";
+    if (type == 1) cout << "Lab ";
+    if (type == 2) cout << "Final ";
+    fout << "Mark: " << setw(_width+4) << mark << '\n';
 }
 
 void Score::Print_one_line(ostream &fout) {
@@ -35,14 +35,13 @@ void Score::Print_one_line(ostream &fout) {
     fout << year << ',';
     fout << semester << ',';
     fout << student_id << ',';
-    fout << midterm << ',';
-    fout << lab << ',';
-    fout << _final;
+    fout << type << ',';
+    fout << mark;
 }
 
 // Linked list of score
 
-Score_list::Score_list() 
+Score_list::Score_list()
 {
     head = NULL;
 }
@@ -50,7 +49,7 @@ Score_list::Score_list()
 void Score_list::Add_to_last(const Score s)
 {
     if (head == NULL) head = new Node_score({s,NULL});
-    else 
+    else
     {
         Node_score *cur = head;
         while (cur->next != NULL)
@@ -59,14 +58,14 @@ void Score_list::Add_to_last(const Score s)
     }
 }
 
-void Score_list::Add_score_to_last() 
+void Score_list::Add_score_to_last()
 {
     Score s;
     s.Input();
     Add_to_last(s);
 }
 
-void Score_list::Print_list(ostream &fout) 
+void Score_list::Print_list(ostream &fout)
 {
     Node_score *cur = head;
         while (cur != NULL) {
@@ -86,10 +85,10 @@ void Score_list::Print_list_one_line(ostream &fout)
     }
 }
 
-Score_list::~Score_list() 
+Score_list::~Score_list()
 {
     Node_score *tmp;
-    while (head != NULL) 
+    while (head != NULL)
     {
         tmp = head;
         head = head->next;

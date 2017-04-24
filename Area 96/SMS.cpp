@@ -256,6 +256,31 @@ void Student_management_service::Import_score() {
     Helper.Write_file(a,"score.txt");
 }
 
+// Import score from file
+void Student_management_service::Import_score_from_file() 
+{
+    int type, semester;
+    cout << "What is type of exam (0 - Midterm, 1 - Lab, 2 - Final\n";
+    cin >> type;
+    string file_name, course_name, year; 
+    cout << "Enter course name\n";
+    cin >> course_name;
+    cout << "Enter academic year\n";
+    cin >> year;
+    cout << "Enter semester\n";
+    cin >> semester;
+    cout << "Enter file name (name.csv)\n";
+    cin >> file_name;
+        CSV_helper Helper;
+        Helper.CSV_reform(file_name);
+    ifstream fin(file_name.c_str());
+    ofstream fout("score.txt");
+    // CS161,2016,1,1651005,10
+    // fout: CS161,2016,1,1651005,type,10
+    string S;
+    while (getline(fin,S))
+}
+
 // Add an existing student to a course - Mai Trinh
 void Student_management_service::Assign_one_student() 
 {

@@ -23,6 +23,7 @@ public:
     void Import_student_list(); // Finished - Cong Duc
     void Import_class_from_file(); // Finished - Cong Duc
     void Import_score(); // Finished - Cong Duc
+    void Import_score_from_file(); // 
     void Assign_one_student(); // Finished - Mai Trinh
     void Assign_one_class(); // Finished - Cong Duc
     void Show_list_of_student_in_class(); // Finished - Cong Duc
