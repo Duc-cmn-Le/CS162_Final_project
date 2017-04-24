@@ -6,7 +6,7 @@ void Student_management_service::Assign_one_class()
     cout << "Enter class code\n";
     cin >> class_code;
     Student_list a;
-    a.List_all_student_of_class(class_code,tmp;
+    a.List_all_student_of_class(class_code,tmp);
     if (a.Is_empty())
         cout << "There is no student in this class " << class_code << '\n';
     else {
