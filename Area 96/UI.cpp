@@ -5,7 +5,15 @@
 
 
 void User_interface::Program() {
-
+    string username, password;
+    while (1) {
+        cout << "Username: ";
+        cin >> username;
+        cout << "Password: ";
+        cin >> password;
+        if (Login(username,password) == 0) continue;
+        Menu(role);
+    }
 }
 
 int User_interface::Login(string username,string password) {
@@ -28,38 +36,79 @@ void User_interface::Logout() {
     type = -1;
 }
 
-void User_interface::Menu_display(string role) {
+void User_interface::Menu(string role) {
     // Role: "student", "staff", "lecturer"
     string s[] = {"Show menu",                                  // 0
         "Logout",                                               // 1
+        "Change password",                                      // 2
         // Academic Staff
-        "Import courses",                                       // 2
-        "Import student lists",                                 // 3
-        "Import schedules",                                     // 4
-        "Export scores of student",                             // 5
-        "Export scores of course",                              // 6
-        "Export lists of student who was present in class",     // 7
-        "Export lists of student who was absent in class",      // 8
+        "Add a course",                                         // 3
+        "Import courses from csv file",                         // 4
+        "View list of course in the console screen",            // 5
+        "Assign an existing class to a course",                 // 6
+        "Add an existing student to a course",                  // 7
+        "Import a list of students in a class from a csv file", // 8
+        "Show list of students in a class in the console screen",// 9
+        "Show list of students in a course in the console screen",// 10
         // Lecturer
-        "Import scores",                                        // 9
+        "Export scores of an exam in a course to a csv file",   // 11
+        "Show scores of an exam in a course in the console screen", // 12
+        "Import scores of an exam in a course from a csv file", // 13
+        "Edit a score of a student in an exam",                 // 14
         // Student
-        "Check-in class"                                        // 10
+        "Check-in ",                                            // 15
+        "View my check in history in a course",                 // 16
+        "View my score in a course"                             // 17
     };
-    int _width = 70;
-    cout << setw(10) << "Number" << setw(_width) << "Function\n";
-    for (int i=0;i<=1;++i)
-        cout << setw(10) << i << setw(_width) << s[i] << '\n';
+    int flag;
+    int _width = 100;
     if (role == "student") {
-        for (int i=10;i<=10;++i)
+        for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
+        for (int i=15;i<=17;++i)
+            cout << setw(10) << i-13 << setw(_width) << s[i] << '\n';
+        while (cin >> flag) 
+        switch(flag)
+        {
+            case 0:
+                for (int i=0;i<=1;++i)
+                    cout << setw(10) << i << setw(_width) << s[i] << '\n';
+                for (int i=15;i<=17;++i)
+                    cout << setw(10) << i-13 << setw(_width) << s[i] << '\n';
+                break;
+        }
     }
     else if (role == "staff") {
-        for (int i=2;i<=8;++i)
+        for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
+        for (int i=3;i<=10;++i)
+            cout << setw(10) << i-1 << setw(_width) << s[i] << '\n';
+        while (cin >> flag) 
+        switch(flag)
+        {
+            case 0:
+                for (int i=0;i<=1;++i)
+                    cout << setw(10) << i << setw(_width) << s[i] << '\n';
+                for (int i=3;i<=10;++i)
+                    cout << setw(10) << i-1 << setw(_width) << s[i] << '\n';
+                break;
+        }
     }
     else {
-        for (int i=9;i<=9;++i)
+        for (int i=0;i<=1;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
+        for (int i=11;i<=14;++i)
+            cout << setw(10) << i-9 << setw(_width) << s[i] << '\n';
+        while (cin >> flag) 
+        switch(flag)
+        {
+            case 0:
+                for (int i=0;i<=1;++i)
+                    cout << setw(10) << i << setw(_width) << s[i] << '\n';
+                for (int i=11;i<=14;++i)
+                    cout << setw(10) << i-9 << setw(_width) << s[i] << '\n';
+                break;
+        }
     }
 }
 

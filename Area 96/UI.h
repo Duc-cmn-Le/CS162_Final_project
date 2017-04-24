@@ -10,9 +10,9 @@ protected:
     string account_name;
 public:
     User_interface();
-    void Program();
-    int Login(string,string);
-    void Logout();
-    void Menu_display(string);
+    void Program(); // Cong Duc
+    int Login(string,string); // Gia Bao
+    void Logout(); // Cong Duc
+    void Menu(string); // Cong Duc
     void Change_password(string,string);
 };

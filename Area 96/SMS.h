@@ -34,7 +34,7 @@ public:
     void Export_score_of_course(ostream &); // Finished - Gia Bao
 //    void Export_scores_of_student(const string,ostream &); 
 //    void Export_scores_of_course(const string,ostream &); 
-    void View_checkin_of_course(string);
+    void View_checkin_of_course(string); // Finished - Van Nam
     void Print_present(string,ostream &); // Finished - Van Nam 
     void Print_absent(string,ostream &); // Finished - Van Nam
     int Is_ok_check_in(string,string,string,int);
