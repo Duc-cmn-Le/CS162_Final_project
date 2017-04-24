@@ -23,9 +23,9 @@ public:
     string password;
     string _class;
 public:
-    void Input();
-    void Print(ostream &);
-    void Print_one_line(ostream &);
+    void Input();                                               // Cong Duc
+    void Print(ostream &);                                      // Cong Duc
+    void Print_one_line(ostream &);                             // Cong Duc
 };
 
 class Node
@@ -41,16 +41,16 @@ private:
 public:
     Student_list();
     int Get_details(string,string,User &); // Cong Duc
-    void Add_to_last(const User u);
-    void Add_student_to_last();
-    void List_all_student();
-    void List_all_student_of_class(string,string &);
-    void List_all_student_of_course(string,string,int);
-    void Delete_node(string);
-    void Print_list(ostream &);
-    void Print_list_one_line(ostream &);
-    void Make_empty();
-    int Is_empty();
-    ~Student_list();
+    void Add_to_last(const User u);                             // Cong Duc
+    void Add_student_to_last();                                 // Cong Duc
+    void List_all_student();                                    // Cong Duc
+    void List_all_student_of_class(string,string &);            // Cong Duc
+    void List_all_student_of_course(string,string,int);         // Cong Duc 
+    void Delete_node(string);                                   // Cong Duc
+    void Print_list(ostream &);                                 // Cong Duc
+    void Print_list_one_line(ostream &);                        // Cong Duc
+    void Make_empty();                                          // Cong Duc
+    int Is_empty();                                             // Cong Duc
+    ~Student_list();                                            // Cong Duc
 };
 #endif

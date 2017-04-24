@@ -12,6 +12,8 @@ void _Next__token(string &s,string &target) {
     target = s;
 }
 
+// Date token - Mai Trinh
+
 void _Date_token(string &s,string &target) {
     target = "";
     int cnt = 0;
@@ -23,6 +25,8 @@ void _Date_token(string &s,string &target) {
         }
     target = s;
 }
+
+// Date process - Mai Trinh
 
 void Date_process(string &S, Date &d)
 {
@@ -44,6 +48,8 @@ void Date_process(string &S, Date &d)
     d.y = date;
 }
 
+// Time token - Mai Trinh
+
 void _Time_token(string &s,string &target) {
     target = "";
     int cnt = 0;
@@ -56,6 +62,8 @@ void _Time_token(string &s,string &target) {
         }
     target = s;
 }
+
+// Time process - Mai Trinh
 
 void Time_process(string &S, Time &t)
 {
@@ -77,6 +85,8 @@ void Time_process(string &S, Time &t)
         time = time*10 + int(char(*i)) - 48;
     t.s = time;
 }
+
+// Mai Trinh
 
 void Course::Input()
 {
@@ -104,7 +114,7 @@ void Course::Input()
     cin >> date_of_week;
 }
 
-
+// Mai Trinh
 
 void Course::Print(ostream &fout)
 {
@@ -120,6 +130,8 @@ void Course::Print(ostream &fout)
     fout << "Dates of week: " << date_of_week << "\n";
 }
 
+// Mai Trinh
+
 void Course::Print_one_line(ostream &fout)
 {
     fout << course_code << ",";
@@ -134,11 +146,17 @@ void Course::Print_one_line(ostream &fout)
     fout << date_of_week;
 }
 
+// = = = = = = = = = = = = =
+// Course list
+// = = = = = = = = = = = = =
+
 Node_course::Node_course(Course x)
 {
     data = x;
     next = NULL;
 }
+
+// Mai Trinh
 
 Course_list::~Course_list()
 {
@@ -149,6 +167,8 @@ Course_list::~Course_list()
         delete p;
     }
 }
+
+// Add a node to list - Mai Trinh
 
 void Course_list::Add_tail(Course x)
 {
@@ -163,12 +183,16 @@ void Course_list::Add_tail(Course x)
     p -> next = new Node_course(x);
 }
 
+// Add a course - Mai Trinh
+
 void Course_list::Add_a_course()
 {
     Course x;
     x.Input();
     Add_tail(x);
 }
+
+// Input course line by line - Mai Trinh
 
 void Course_list::Input_line_by_line(istream &fin) {
     string S, s;
@@ -196,6 +220,9 @@ void Course_list::Input_line_by_line(istream &fin) {
         Add_tail(c);
     }
 }
+
+// Print list - Mai Trinh
+
 void Course_list::Print_list(ostream &fout)
 {
     Node_course* p = head;
@@ -206,6 +233,8 @@ void Course_list::Print_list(ostream &fout)
         p = p -> next;
     }
 }
+
+// Print list line by line - Mai Trinh
 
 void Course_list::Print_list_one_line(ostream &fout)
 {
@@ -218,6 +247,8 @@ void Course_list::Print_list_one_line(ostream &fout)
     }
 }
 
+// Make list empty - Mai Trinh
+
 void Course_list::Make_empty()
 {
     while (head)
@@ -229,12 +260,16 @@ void Course_list::Make_empty()
     }
 }
 
+// Delete a course - Mai Trinh
+
 void Course_list::Delete_a_course()
 {
     string s;
     cin >> s;
     Delete_node(s);
 }
+
+// Delete a node in list - Mai Trinh
 
 void Course_list::Delete_node(string s)
 {

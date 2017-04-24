@@ -1,5 +1,7 @@
 #include "user.h"
 
+// Cong Duc
+
 int _Next_token(string &s,string &target) {
     target = "";
     int cnt = 0;
@@ -13,8 +15,11 @@ int _Next_token(string &s,string &target) {
     return false;
 }
 
+// =============
 // CLASS USER
+// =============
 
+// Cong Duc
 void User::Input() {
     cout << "Student ID? ";
     cin >> username;
@@ -43,6 +48,7 @@ void User::Input() {
     type = 0;
 }
 
+// Cong Duc
 
 void User::Print(ostream &fout) {
     int _width = 20;
@@ -52,6 +58,8 @@ void User::Print(ostream &fout) {
     fout << "Mobile phone: " << setw(_width) << mobile_phone << '\n';
     fout << "Class: " << setw(_width+7) << _class << '\n';
 }
+
+// Cong Duc
 
 void User::Print_one_line(ostream &fout) {
     fout << username << ',';
@@ -64,13 +72,16 @@ void User::Print_one_line(ostream &fout) {
 }
 
 
-
-// Linked list of users
+//=========================
+/// Linked list of users
+//=========================
 
 Student_list::Student_list()
 {
     head=NULL;
 }
+
+// Get detail of a student in database - Cong Duc
 
 int Student_list::Get_details(string file_type,string username,User &res) {
     ifstream fin(file_type.c_str());
@@ -94,6 +105,8 @@ int Student_list::Get_details(string file_type,string username,User &res) {
     return false;
 }
 
+// Add a node to last - Cong Duc
+
 void Student_list::Add_to_last(const User u)
 {
     if (head==NULL) head=new Node({u,NULL});
@@ -105,12 +118,15 @@ void Student_list::Add_to_last(const User u)
     }
 }
 
+// Add student to last of list - Cong Duc
 
 void Student_list::Add_student_to_last() {
     User a;
     a.Input();
     Add_to_last(a);
 }
+
+// Create a list of all students in system - Cong Duc
 
 void Student_list::List_all_student() {
     ifstream fin("user.txt");
@@ -132,6 +148,8 @@ void Student_list::List_all_student() {
         Add_to_last(t);
     }
 }
+
+// Create a list of all students in a class - Cong Duc
 
 void Student_list::List_all_student_of_class(string class_name,string &all_student_id) 
 {
@@ -161,6 +179,8 @@ void Student_list::List_all_student_of_class(string class_name,string &all_stude
     }
 }
 
+// Create list of all students of a course - Cong Duc
+
 void Student_list::List_all_student_of_course(string course_name,string year,int semester)
 {
     ifstream fin("course_student.txt");
@@ -182,6 +202,8 @@ void Student_list::List_all_student_of_course(string course_name,string year,int
     }
 }
 
+// Delete a node in list - Cong Duc
+
 void Student_list::Delete_node(string student_id) {
     if (head == NULL) return;
     if (head->data.username == student_id) 
@@ -202,6 +224,8 @@ void Student_list::Delete_node(string student_id) {
     }
 }
 
+// Print list - Cong Duc
+
 void Student_list::Print_list(ostream &fout) {
     Node *cur = head;
     while (cur != NULL) {
@@ -211,6 +235,8 @@ void Student_list::Print_list(ostream &fout) {
     }
 }
 
+// Print list line by line - Cong Duc
+
 void Student_list::Print_list_one_line(ostream &fout) {
     Node *cur  = head;
     while (cur != NULL) {
@@ -219,6 +245,8 @@ void Student_list::Print_list_one_line(ostream &fout) {
         cur = cur->next;
     }
 }
+
+// Make list empty - Cong Duc
 
 void Student_list::Make_empty() {
     Node *cur, *next;
@@ -231,9 +259,13 @@ void Student_list::Make_empty() {
     head = NULL;
 }
 
+// Check empty list - Cong Duc
+
 int Student_list::Is_empty() {
     return head == NULL;
 }
+
+// Destructor - Cong Duc
 
 Student_list::~Student_list()
 {
