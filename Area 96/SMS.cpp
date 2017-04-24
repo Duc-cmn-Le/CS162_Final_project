@@ -318,14 +318,14 @@ void Student_management_service::Assign_one_student()
     return;
 }
 
-// Assign an existing class to a course
+// Assign an existing class to a course - Cong Duc
 void Student_management_service::Assign_one_class()
 {
     string tmp, class_code;
     cout << "Enter class code\n";
     cin >> class_code;
     Student_list a;
-    a.List_all_student_of_class(class_code,tmp;
+    a.List_all_student_of_class(class_code,tmp);
     if (a.Is_empty())
         cout << "There is no student in this class " << class_code << '\n';
     else {
@@ -336,7 +336,45 @@ void Student_management_service::Assign_one_class()
         cin >> year;
         cout << "Enter semester\n";
         cin >> semester;
-
+        // - Processing
+        CSV_helper Helper; Course c;
+        if (Helper.Get_details("course.txt",course_code,year,semester,c) == 0) {
+            cout << "Course code " << course_code << " not found\n";
+            return;
+        }
+        filebuf fb, fbnew;
+        fb.open ("course_student.txt",ios::in);
+        fbnew.open ("course_student_new.txt",ios::out);
+        istream fin(&fb);
+        ostream fnew(&fbnew);
+        string S, s;
+        while (getline(fin,S)) {
+            Next_token(S,s);
+            fnew << s << ",";
+            if (s != course_code) {
+                fnew << S << endl;
+                continue;
+            }
+            Next_token(S,s);
+            fnew << s << ",";
+            if (s != year) {
+                fnew << S << endl;
+                continue;
+            }
+            Next_token(S,s);
+            fnew << s;
+            int t = 0;
+            for (string::iterator i=s.begin();i!=s.end();++i)
+                t = t*10 + *i - '0';
+            if (t != semester) {
+                fnew << "," << S << endl;
+                continue;
+            }
+            fnew << "," << S << ',' << tmp << endl;
+        }
+        fb.close();
+        fbnew.close();
+        system("mv course_student_new.txt course_student.txt");
     }
 }
 
