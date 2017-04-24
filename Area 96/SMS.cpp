@@ -240,6 +240,8 @@ void Student_management_service::Import_class_from_file()
     a.Input_line_by_line(fin);
     fin.close();
     Helper.Write_file(a,"user.txt");
+    cout << "Imported class from file to database system\n";
+    cout << "Each student has an account with username and password is student ID\n";
 }
 
 //Import scores - Cong Duc
