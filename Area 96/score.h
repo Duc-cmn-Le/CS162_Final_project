@@ -12,7 +12,7 @@ class Score
 public:
     string course_code;
     string student_id;
-    int year;
+    string year;
     int semester;
     int type;
     double mark;

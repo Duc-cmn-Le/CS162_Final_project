@@ -5,6 +5,9 @@
 #include <cstring>
 using namespace std;
 
+bool LeapYear(int);                                                         // Mai Trinh
+int nth(int,int,int);                                                       // Mai Trinh
+
 void _Next__token(string &,string &);                                       // Mai Trinh
 void _Date_token(string &s,string &target);                                 // Mai Trinh
 void _Time_token(string &s,string &target);                                 // Mai Trinh
@@ -34,6 +37,7 @@ class Course
     void Input();                                                           // Mai Trinh
     void Print(ostream &);                                                  // Mai Trinh
     void Print_one_line(ostream &);                                         // Mai Trinh
+    int Count_week();                                                      // Mai Trinh
 } ;
 
 class Node_course

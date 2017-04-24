@@ -256,29 +256,47 @@ void Student_management_service::Import_score() {
     Helper.Write_file(a,"score.txt");
 }
 
-// Import score from file
+// Import score from file - Cong Duc
 void Student_management_service::Import_score_from_file() 
 {
     int type, semester;
-    cout << "What is type of exam (0 - Midterm, 1 - Lab, 2 - Final\n";
+    cout << "What is type of exam (0 - Midterm, 1 - Lab, 2 - Final)\n";
     cin >> type;
-    string file_name, course_name, year; 
+    string file_name, course_code, year;
     cout << "Enter course name\n";
-    cin >> course_name;
+    cin >> course_code;
     cout << "Enter academic year\n";
     cin >> year;
     cout << "Enter semester\n";
     cin >> semester;
+        CSV_helper Helper;
+    Course _course;
+    if (Helper.Get_details("course.txt",course_code,year,semester,_course) == 0) {
+        cout << "This course is not found in system database\n";
+        return;
+    }
     cout << "Enter file name (name.csv)\n";
     cin >> file_name;
-        CSV_helper Helper;
         Helper.CSV_reform(file_name);
     ifstream fin(file_name.c_str());
-    ofstream fout("score.txt");
     // CS161,2016,1,1651005,10
     // fout: CS161,2016,1,1651005,type,10
-    string S;
-    while (getline(fin,S))
+    string S, s;
+    Score tmp;
+    tmp.course_code = course_code;
+    tmp.year = year;
+    tmp.semester = semester;
+    tmp.type = type;
+    Score_list a;
+    while (getline(fin,S)) {
+        Next_token(S,s);
+        if (s[0] < '0' || s[0] > '9') continue;
+        tmp.student_id = s;
+        tmp.mark = to_double(S);
+        a.Add_to_last(tmp);
+    }
+    fin.close();
+    Helper.Write_file(a,"score.txt");
 }
 
 // Add an existing student to a course - Mai Trinh
@@ -467,6 +485,8 @@ void Student_management_service::View_list_of_course() {
     fb.close();
 }
 
+/*
+
 //Get score of student - Gia Bao
 void Student_management_service::Export_scores_of_student(const string username,ostream &fout)
 {
@@ -540,6 +560,7 @@ void Student_management_service::Export_scores_of_course(const string course_id,
     _list.Print_list(fout);
 }
 
+*/
 
 //Get list of student who was present - Van Nam
 void Student_management_service::Print_present (string course_code,ostream &fout)
