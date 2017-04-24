@@ -8,7 +8,9 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
-    Service.Import_score_from_file();
+    CSV_helper Helper;
+    cout << Helper.Is_student_in_course("1651046","CS162","2017",2);
+//    Service.Import_score_from_file();
 //    Service.Import_class_from_file();
 //    Service.Show_list_of_student_in_course();
 //    Service.Assign_one_class();

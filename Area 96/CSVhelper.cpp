@@ -120,6 +120,32 @@ int CSV_helper::Get_details(string file_name,string course_code,string year,int 
     }
     return false;
 }
+
+// Cong Duc
+
+int CSV_helper::Is_student_in_course(string student_id,string course_code,string year,int semester) 
+{
+    ifstream fin("course_student.txt");
+    string S, s;
+    while (getline(fin,S)) {
+        Next_token(S,s);
+        if (s != course_code) continue;
+        Next_token(S,s);
+        if (s != year) continue;
+        Next_token(S,s);
+        if (s[0]-'0' != semester) continue;
+        while (Next_token(S,s)) 
+            if (s == student_id) {
+                fin.close();
+                return true;
+            }
+        fin.close();
+        return (S == student_id);
+    }
+    fin.close();
+    return false;
+}
+
 // Change password - Van Nam
 /*
 void Change_password(string username, string password)
