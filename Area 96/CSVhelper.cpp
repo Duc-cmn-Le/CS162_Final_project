@@ -84,6 +84,7 @@ int CSV_helper::Get_details(string file_type,string username,User &res) {
         Next_token(S,s);
         res.type  = s[0]-'0';
         Next_token(S,s);
+        res.password = s;
         res._class = S; 
         return true;
     }

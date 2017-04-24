@@ -34,11 +34,15 @@ int User_interface::Login(string username,string password) {
     }
     User u;
     CSV_helper csv;
+    Md5 md5; 
+    md5.pass = password;
+    password = md5.Process();
     if (csv.Get_details("user.txt",username,u) && u.password==password) {
         account_name = username;
         type = u.type; // gan gia tri cho type tuong ung voi user ma minh tim dc
         return true;
     }
+    cout << "Wrong username or password\n";
     return false;
 }
 
@@ -200,6 +204,10 @@ void User_interface::Menu(string role) {
 // Change password - Van Nam
 void User_interface::Change_password() {
     string username = account_name, password;
+    if (account_name == "admin" || type == 1) {
+        cout << "You cant change password rightnow\n";
+        return;
+    }
     cout << "Enter password (no space)\n";
     cin >> password;
     filebuf fb, fbnew;
@@ -232,6 +240,7 @@ void User_interface::Change_password() {
     fb.close();
     fbnew.close();
     system("mv user_new.txt user.txt");
+    cout << "Password is changed\n";
 }
 
 // Check in - Cong Duc
