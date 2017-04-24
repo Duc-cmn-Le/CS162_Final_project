@@ -1,4 +1,4 @@
-//#include "UI.h"
+#include "UI.h"
 #include "SMS.h"
 #include "user.h"
 #include "course.h"
@@ -6,10 +6,15 @@
 using namespace std;
 
 int main() {
+    User_interface UI;
+    UI.Program();
+    return 0;
+}
+
+/*
+int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
-    CSV_helper Helper;
-    Helper.Change_password("1651044","vietnam0");
 //    Service.View_checkin_of_course("1651044");
 //    Service.View_score_of("1651044");
 //    Service.Edit_score();
@@ -30,31 +35,5 @@ int main() {
 //    Service.Import_student_list();
 //    Service.Import_score();
 //    Service.Import_course();
-}
-/*
- TEST IMPORT STUDENT
-int main() {
-    Course_list a;
-    cout << "Enter number of course\n";
-    int n;
-    cin >> n;
-    for (;n;n--) a.Add_a_course();
-    CSV_helper Helper;
-    Helper.Write_file(a,"course.txt");
-    return 0;
-}
-*/
-/* 
- * TEST IMPORT STUDENT
-int main() {
-    Student_list a;
-    cout << "Enter number of student\n";
-    int n;
-    cin >> n;
-    for (;n;n--) a.Add_student_to_last();
-//    a.Print_list();
-    CSV_helper Helper;
-    Helper.Write_file(a,"user.txt");
-    return 0;
 }
 */

@@ -149,36 +149,3 @@ int CSV_helper::Is_student_in_course(string student_id,string course_code,string
     return false;
 }
 
-// Change password - Van Nam
-void CSV_helper::Change_password(string username,string password) {
-    filebuf fb, fbnew;
-    fb.open ("user.txt",ios::in);
-    fbnew.open ("user_new.txt",ios::out);
-    istream fin(&fb);
-    ostream fnew(&fbnew);
-    string S, s;
-    while (getline(fin,S)) {
-        Next_token(S,s);
-        fnew << s << ",";
-        if (s != username) {
-            fnew << S << endl;
-            continue;
-        }
-        Md5 hsh;
-        hsh.pass = password;
-        Next_token(S,s);
-        fnew << s << ",";
-        Next_token(S,s);
-        fnew << s << ",";
-        Next_token(S,s);
-        fnew << s << ",";
-        Next_token(S,s);
-        fnew << s << ",";
-        fnew << hsh.Process() << ",";
-        Next_token(S,s);
-        fnew << S << endl;
-    }
-    fb.close();
-    fbnew.close();
-    system("mv user_new.txt user.txt");
-}

@@ -2,6 +2,11 @@
 #include "CSVhelper.h"
 #include "user.h"
 
+User_interface::User_interface()
+{
+    type = -1; 
+    account_name = "";
+}
 
 
 void User_interface::Program() {
@@ -17,6 +22,11 @@ void User_interface::Program() {
 }
 
 int User_interface::Login(string username,string password) {
+    if (username == "admin" && password == "admin") {
+        type = 1;
+        account_name = "admin";
+        return true;
+    }
     if (username == "httu" && password == "admin") {
         type = 1;
         account_name = "httu"; 
@@ -67,7 +77,7 @@ void User_interface::Menu(string role) {
     ifstream fi;
     ofstream fo;
     if (role == "student") {
-        for (int i=0;i<=1;++i)
+        for (int i=0;i<=2;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=15;i<=17;++i)
             cout << setw(10) << i-12 << setw(_width) << s[i] << '\n';
@@ -75,7 +85,7 @@ void User_interface::Menu(string role) {
         switch(flag)
         {
             case 0:
-                for (int i=0;i<=1;++i)
+                for (int i=0;i<=2;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 for (int i=15;i<=17;++i)
                     cout << setw(10) << i-12 << setw(_width) << s[i] << '\n';
@@ -83,10 +93,11 @@ void User_interface::Menu(string role) {
             case 1:
                 return;
             case 2:
-
+                Change_password();
                 break;
             case 3:
                 // Checkin
+                Check_in();
                 break;
             case 4:
                 Service.View_checkin_of_course(account_name);
@@ -99,7 +110,7 @@ void User_interface::Menu(string role) {
         }
     }
     else if (role == "staff") {
-        for (int i=0;i<=1;++i)
+        for (int i=0;i<=2;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=3;i<=10;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
@@ -107,7 +118,7 @@ void User_interface::Menu(string role) {
         switch(flag)
         {
             case 0:
-                for (int i=0;i<=1;++i)
+                for (int i=0;i<=2;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 for (int i=3;i<=10;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
@@ -115,7 +126,7 @@ void User_interface::Menu(string role) {
             case 1:
                 return;
             case 2:
-
+                Change_password();
                 break;
             case 3:
                 Service.Import_course();
@@ -146,7 +157,7 @@ void User_interface::Menu(string role) {
         }
     }
     else {
-        for (int i=0;i<=1;++i)
+        for (int i=0;i<=2;++i)
             cout << setw(10) << i << setw(_width) << s[i] << '\n';
         for (int i=11;i<=14;++i)
             cout << setw(10) << i-8 << setw(_width) << s[i] << '\n';
@@ -154,7 +165,7 @@ void User_interface::Menu(string role) {
         switch(flag)
         {
             case 0:
-                for (int i=0;i<=1;++i)
+                for (int i=0;i<=2;++i)
                     cout << setw(10) << i << setw(_width) << s[i] << '\n';
                 for (int i=11;i<=14;++i)
                     cout << setw(10) << i-8 << setw(_width) << s[i] << '\n';
@@ -162,7 +173,7 @@ void User_interface::Menu(string role) {
             case 1:
                 return;
             case 2:
-
+                Change_password();
                 break;
             case 3:
                 cout << "Enter csv file\n";
@@ -186,11 +197,60 @@ void User_interface::Menu(string role) {
     }
 }
 
-// Change:wq
-//
+// Change password - Van Nam
+void User_interface::Change_password() {
+    string username = account_name, password;
+    cout << "Enter password (no space)\n";
+    cin >> password;
+    filebuf fb, fbnew;
+    fb.open ("user.txt",ios::in);
+    fbnew.open ("user_new.txt",ios::out);
+    istream fin(&fb);
+    ostream fnew(&fbnew);
+    string S, s;
+    while (getline(fin,S)) {
+        Next_token(S,s);
+        fnew << s << ",";
+        if (s != username) {
+            fnew << S << endl;
+            continue;
+        }
+        Md5 hsh;
+        hsh.pass = password;
+        Next_token(S,s);
+        fnew << s << ",";
+        Next_token(S,s);
+        fnew << s << ",";
+        Next_token(S,s);
+        fnew << s << ",";
+        Next_token(S,s);
+        fnew << s << ",";
+        fnew << hsh.Process() << ",";
+        Next_token(S,s);
+        fnew << S << endl;
+    }
+    fb.close();
+    fbnew.close();
+    system("mv user_new.txt user.txt");
+}
 
-void User_interface::Change_password(string username,string password) 
+// Check in - Cong Duc
+
+void User_interface::Check_in()
 {
-
-
+    string course_code, year; int semester;
+    cout << "Enter course code\n";
+    cin >> course_code;
+    cout << "Enter acadeic year\n";
+    cin >> year;
+    cout << "Enter semester\n";
+    cin >> semester;
+    Student_management_service Service;
+    int week = Service.Is_ok_check_in(account_name,course_code,year,semester);
+    if (week == 0) cout << "You cant check-in now\n";
+    else {
+        ofstream fo("presence.txt",ios::app);
+        fo << course_code << ',' << year << ',' << semester << ',' << account_name << ',' << week << '\n';
+        fo.close();
+    }
 }

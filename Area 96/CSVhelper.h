@@ -25,7 +25,6 @@ public:
     int Get_details(string,string,User &); // Cong Duc
     int Get_details(string,string,string,int,Course &); // Cong Duc
     int Is_student_in_course(string,string,string,int); // Cong Duc
-    void Change_password(string username,string password); // Van Nam
 };
 
 #endif
