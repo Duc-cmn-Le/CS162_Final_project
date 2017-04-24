@@ -43,6 +43,7 @@ public:
     void Add_to_last(const User u);
     void Add_student_to_last();
     void List_all_student();
+    void List_all_student_of_class(string,string &);
     void Delete_node(string);
     void Print_list(ostream &);
     void Print_list_one_line(ostream &);

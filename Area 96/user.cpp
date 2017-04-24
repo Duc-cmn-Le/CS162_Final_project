@@ -111,6 +111,34 @@ void Student_list::List_all_student() {
     }
 }
 
+void Student_list::List_all_student_of_class(string class_name,string &all_student_id) 
+{
+    all_student_id = "";
+    ifstream fin("user.txt");
+    string S, s;
+    User t;
+    int cnt = 0;
+    while (getline(fin,S)) {
+        _Next_token(S,s);
+        t.username = s;
+        _Next_token(S,s);
+        t.full_name = s;
+        _Next_token(S,s);
+        t.email = s;
+        _Next_token(S,s);
+        t.mobile_phone = s;
+        _Next_token(S,s);
+        t.type  = s[0]-'0';
+        _Next_token(S,s);
+        t._class = S;
+        if (t._class != class_name) continue;
+        if (cnt) all_student_id += ',';
+        all_student_id += t.username;
+        Add_to_last(t);
+        cnt++;
+    }
+}
+
 void Student_list::Delete_node(string student_id) {
     if (head == NULL) return;
     if (head->data.username == student_id) 
