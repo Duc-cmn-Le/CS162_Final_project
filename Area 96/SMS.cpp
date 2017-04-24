@@ -712,6 +712,55 @@ void Student_management_service::Export_scores_of_course(const string course_id,
 
 */
 
+// View checkin in a course - Van Nam
+void Student_management_service::View_checkin_of_course(string stuID)
+{
+    string course_code, year; int semester;
+    cout << "Enter course code\n";
+    cin >> course_code;
+    cout << "Enter year\n";
+    cin >> year;
+    cout << "Enter semester\n";
+    cin >> semester;
+    CSV_helper check;
+    Course res;
+    if (!check.Get_details("course.txt", course_code, year, semester, res))
+    {
+        cout << "Course doesn't exist" << endl;
+        return ;
+    }
+    
+    ifstream f;
+    string S, s, c, y, ID;
+    long long a = 0;
+    int week;
+    f.open("presence.txt");
+    while (getline(f,S))
+    {
+        /// Code
+        Next_token(S,s);
+        if (s != course_code) continue;
+        /// Year
+        Next_token(S,s);
+        if (s != year) continue;
+        /// Semester
+        Next_token(S,s);
+        if (to_int(s) != semester) continue;
+        /// StuID
+        Next_token(S,ID);
+        /// Week
+        week = to_int(S); 
+        /// Bit
+        a |= (1<<(week-1));
+    }
+    int num_week = res.Count_week();
+    for (int i=0;i<num_week;++i)
+        if ((a>>i)&1)
+            cout << "Week " << i+1 << ": present\n";
+        else cout << "Week " << i+1 << ": absent\n";
+    f.close();
+}
+
 //Get list of student who was present - Van Nam
 void Student_management_service::Print_present (string course_code,ostream &fout)
 {
