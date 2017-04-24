@@ -544,7 +544,7 @@ void Student_management_service::Edit_score()
     system("mv score_new.txt score.txt");
 }
 
-// View score of a student
+// View score of a student - Gia Bao
 void Student_management_service::View_score_of(string student_id)
 {
     string course_code,year;
