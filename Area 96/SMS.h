@@ -29,6 +29,7 @@ public:
     void Show_list_of_student_in_class(); // Finished - Cong Duc
     void Show_list_of_student_in_course(); // Finished - Cong Duc
     void View_list_of_course(); // Finished - Mai Trinh
+    void Edit_score();  // Finished - Gia Bao
     void Export_scores_of_student(const string,ostream &); 
     void Export_scores_of_course(const string,ostream &); 
     void Print_present(string,ostream &); // Finished - Van Nam 

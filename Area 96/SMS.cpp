@@ -485,6 +485,65 @@ void Student_management_service::View_list_of_course() {
     fb.close();
 }
 
+// Edit score - Gia Bao
+
+void Student_management_service::Edit_score()
+{
+    string course_code, year, student_id; int semester, type; double mark;
+    cout << "Enter course code\n";
+    cin >> course_code;
+    cout << "Enter year\n";
+    cin >> year;
+    cout << "Enter semester\n";
+    cin >> semester;
+    CSV_helper csv;
+    Course Tmp;
+    if (csv.Get_details("course.txt",course_code,year,semester,Tmp)==0)
+    {
+        cout<<"This course does not exist!\n";
+        return;
+    }
+    cout << "Enter type of exam (0 - midterm, 1 - lab, 2 - final)\n";
+    cin >> type;
+    cout << "Enter student ID\n";
+    cin >> student_id;
+    if (csv.Is_student_in_course(student_id,course_code,year,semester)==0)
+    {
+        cout<<"This student does not attend to in this course!\n";
+        return;
+    }
+    cout << "Enter new mark\n";
+    cin >> mark;
+    ifstream fi;
+    ofstream fo;
+    fi.open("score.txt");
+    fo.open("score_new.txt");
+    string s,p,q;
+    while (getline(fi,s))
+    {
+        Next_token(s,p);
+        fo << p << ',';
+        if (p != course_code) {fo << s << '\n'; continue;}
+        Next_token(s,p);
+        fo << p << ',';
+        if (p != year) {fo << s << '\n'; continue;}
+        Next_token(s,p);
+        fo << p << ',';
+        if (to_int(p) != semester) {fo << s << '\n'; continue;}
+        Next_token(s,p);
+        fo << p << ',';
+        if (p != student_id) {fo << s << '\n'; continue;}
+        Next_token(s,p);
+        fo << p << ',';
+        if (to_int(p) != type) {fo << s << '\n'; continue;}
+        fo << mark << '\n';
+        
+    }
+    fi.close();
+    fo.close();
+    system("mv score_new.txt score.txt");
+}
+
 /*
 
 //Get score of student - Gia Bao
