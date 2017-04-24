@@ -237,6 +237,98 @@ void Student_management_service::Import_score() {
     Helper.Write_file(a,"score.txt");
 }
 
+// Add an existing student to a course
+void Student_management_service::Assign_one_student() 
+{
+    string course_code, year, student_id;
+    int semester;
+    cout << "Enter course code\n";
+    cin >> course_code;
+    cout << "Enter academic year\n";
+    cin >> year;
+    cout << "Enter semester\n";
+    cin >> semester;
+    cout << "Enter student ID\n";
+    cin >> student_id;
+    CSV_helper Helper; User tmp;
+    if (Helper.Get_details("user.txt",student_id,tmp) == 0) 
+        cout << "No student with ID " << student_id << " in system\n";
+    filebuf fb, fbnew;
+    fb.open ("course_student.txt",ios::in);
+    fbnew.open ("course_student_new.txt",ios::out);
+    istream fin(&fb);
+    ostream fnew(&fbnew);
+    string S, s;
+    int c;
+    while (getline(fin,S)) {
+        c = Next_token(S,s);
+        fnew << s << ",";
+        if (s != course_code) {
+            fnew << S << endl;
+            continue;
+        }
+        c = Next_token(S,s);
+        fnew << s << ",";
+        if (s != year) {
+            fnew << S << endl;
+            continue;
+        }
+        c = Next_token(S,s);
+        fnew << s;
+        int tmp = 0;
+        for (string::iterator i=s.begin();i!=s.end();++i)
+            tmp = tmp*10 + *i - '0';
+        if (tmp != semester) {
+            fnew << "," << S << endl;
+            continue;
+        }
+        while (Next_token(S,s)) {
+            fnew << "," << s;
+            if (s == student_id) {
+                cout << "Student with ID " << student_id << " is already in this course\n";
+                fbnew.close();
+                system("rm course_student_new.txt");
+            }
+        }
+        fnew << "," << S << "," << student_id << endl;
+    }
+    fb.close();
+    fbnew.close();
+    system("mv course_student_new.txt course_student.txt");
+    cout << "Assigned student with ID " << student_id << " to this course\n";
+    return;
+}
+
+// Show list of student in class - Cong Duc
+void Student_management_service::Show_list_of_student_in_class() 
+{
+    string class_code, s;
+    cout << "Enter class code\n";
+    cin >> class_code;
+    Student_list a;
+    a.List_all_student_of_class(class_code, s);
+    if (a.Is_empty())
+        cout << "There is no student in class " << class_code << '\n';
+    else a.Print_list(cout);
+}
+
+// Show list of student in course - Cong Duc
+void Student_management_service::Show_list_of_student_in_course() 
+{
+    string course_code, year; int semester;
+    cout << "Enter course code\n";
+    cin >> course_code;
+    cout << "Enter year\n";
+    cin >> year;
+    cout << "Enter semester\n";
+    cin >> semester;
+    Student_list a;
+    a.List_all_student_of_course(course_code,year,semester);
+    if (a.Is_empty())
+        cout << "There is still no student in this course\n";
+    else a.Print_list(cout);
+}
+
 // View list of course - Mai Trinh
 void Student_management_service::View_list_of_course() {
     string S, s;

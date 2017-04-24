@@ -72,6 +72,28 @@ Student_list::Student_list()
     head=NULL;
 }
 
+int Student_list::Get_details(string file_type,string username,User &res) {
+    ifstream fin(file_type.c_str());
+    string S, s;
+    while (getline(fin,S)) {
+        _Next_token(S,s);
+        if (s != username) continue;
+        res.username = s;
+        _Next_token(S,s);
+        res.full_name = s;
+        _Next_token(S,s);
+        res.email = s;
+        _Next_token(S,s);
+        res.mobile_phone = s;
+        _Next_token(S,s);
+        res.type  = s[0]-'0';
+        _Next_token(S,s);
+        res._class = S; 
+        return true;
+    }
+    return false;
+}
+
 void Student_list::Add_to_last(const User u)
 {
     if (head==NULL) head=new Node({u,NULL});
@@ -139,6 +161,27 @@ void Student_list::List_all_student_of_class(string class_name,string &all_stude
     }
 }
 
+void Student_list::List_all_student_of_course(string course_name,string year,int semester)
+{
+    ifstream fin("course_student.txt");
+    string S, s;
+    User t;
+    while (getline(fin,S)) {
+        _Next_token(S,s);
+        if (s != course_name) continue;
+        _Next_token(S,s);
+        if (s != year) continue;
+        _Next_token(S,s);
+        if (s[0]-'0' != semester) continue;
+        while (_Next_token(S,s)) {
+            Get_details("user.txt",s,t);
+            Add_to_last(t);
+        }
+        Get_details("user.txt",S,t);
+        Add_to_last(t);
+    }
+}
+
 void Student_list::Delete_node(string student_id) {
     if (head == NULL) return;
     if (head->data.username == student_id) 
@@ -186,6 +229,10 @@ void Student_list::Make_empty() {
         cur = next;
     }
     head = NULL;
+}
+
+int Student_list::Is_empty() {
+    return head == NULL;
 }
 
 Student_list::~Student_list()

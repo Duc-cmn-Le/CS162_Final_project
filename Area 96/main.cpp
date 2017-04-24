@@ -9,10 +9,10 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     Student_management_service Service;
-    Student_list a;
-    string s;
-    a.List_all_student_of_class("15CTT",s);
-    cout << s;
+    Service.Show_list_of_student_in_course();
+    Service.Assign_one_student();
+    Service.Show_list_of_student_in_course();
+//    Service.Show_list_of_student_in_class();
 //    cout << Service.Check_in("ldcduc","AA123","2017",3);
 //    Service.View_list_of_course(); 
 //    Service.Import_course_from_file();
