@@ -10,7 +10,7 @@ int main() {
     Student_management_service Service;
 //    Service.Import_class_from_file();
 //    Service.Show_list_of_student_in_course();
-//    Service.Assign_one_student();
+    Service.Assign_one_student();
 //    Service.Show_list_of_student_in_course();
 //    Service.Show_list_of_student_in_class();
 //    cout << Service.Check_in("ldcduc","AA123","2017",3);

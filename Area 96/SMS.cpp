@@ -256,7 +256,7 @@ void Student_management_service::Import_score() {
     Helper.Write_file(a,"score.txt");
 }
 
-// Add an existing student to a course
+// Add an existing student to a course - Mai Trinh
 void Student_management_service::Assign_one_student() 
 {
     string course_code, year, student_id;

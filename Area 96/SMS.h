@@ -21,7 +21,7 @@ public:
     void Import_course(); // Finished - Cong Duc
     void Import_course_from_file(); // Finished - Cong Duc
     void Import_student_list(); // Finished - Cong Duc
-    void Import_class_from_file(); // Cong Duc
+    void Import_class_from_file(); // Finished - Cong Duc
     void Import_score(); // Finished - Cong Duc
     void Assign_one_student(); // Finished - Mai Trinh
     void Show_list_of_student_in_class(); // Finished - Cong Duc
