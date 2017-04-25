@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <unistd.h>
+#include <stdio.h>
 using namespace std;
 
 class User_interface{

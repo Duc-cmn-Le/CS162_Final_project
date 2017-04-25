@@ -30,15 +30,13 @@ void User::Input() {
     cin >> email;
     cout << "Mobile phone? ";
     cin >> mobile_phone;
-    cout << "Password ";
     string s, ss;
-    cin >> s;
-    cout << "Confirm your password ";
-    while (cin >> ss) {
+    s = getpass("Password: ");
+    while (1) {
+        ss = getpass("Confirm your password: ");
         if (ss == s) {
             Md5 md5;
-            md5.pass = s;
-            password = md5.Process(); 
+            password = md5.Process(s); 
             break;
         }
         cout << "Password is not matched\n";
@@ -181,12 +179,15 @@ void Student_list::List_all_student_of_class(string class_name,string &all_stude
 
 // Create list of all students of a course - Cong Duc
 
-void Student_list::List_all_student_of_course(string course_name,string year,int semester)
+void Student_list::List_all_student_of_course(string course_name,string year,int semester,string &all_student_id)
 {
+    all_student_id = "";
     ifstream fin("course_student.txt");
     string S, s;
     User t;
+    int cnt = 0;
     while (getline(fin,S)) {
+        S += ',';
         _Next_token(S,s);
         if (s != course_name) continue;
         _Next_token(S,s);
@@ -195,10 +196,11 @@ void Student_list::List_all_student_of_course(string course_name,string year,int
         if (s[0]-'0' != semester) continue;
         while (_Next_token(S,s)) {
             Get_details("user.txt",s,t);
+            if (cnt) all_student_id += ',';
+            all_student_id += t.username;
             Add_to_last(t);
+            cnt++;
         }
-        Get_details("user.txt",S,t);
-        Add_to_last(t);
     }
 }
 
@@ -241,8 +243,7 @@ void Student_list::Input_line_by_line(istream &fin)
         u.mobile_phone = s;
         u.type = 0;
         Md5 md5;
-        md5.pass = u.username;
-        u.password = md5.Process();
+        u.password = md5.Process(u.username);
         u._class = S; 
         Add_to_last(u);
     }

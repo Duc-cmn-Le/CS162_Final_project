@@ -76,6 +76,16 @@ void Score_list::Add_score_to_last()
     Add_to_last(s);
 }
 
+int Score_list::Find_student(string student_id) 
+{
+    Node_score *cur = head;
+    while (cur != NULL) {
+        if (cur->data.student_id == student_id) return true;
+        cur = cur->next;
+    }
+    return false;
+}
+
 void Score_list::Print_list(ostream &fout)
 {
     Node_score *cur = head;

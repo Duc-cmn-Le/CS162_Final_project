@@ -247,9 +247,10 @@ void Course_list::Create_lecturer(string user_name)
     User u;
     if (Get_details("user.txt",user_name,u) == 0) {
         ofstream fo("user.txt",ios::app);
-        fo << user_name << ", ," << user_name << "@apcs.vn, 2";
-
-        fo << ", ";
+        Md5 md5;
+        fo << user_name << ", ," << user_name << "@apcs.vn, ,2,";
+        fo << md5.Process(user_name);
+        fo << ", " << endl;
         fo.close();
     }
 }
@@ -258,6 +259,7 @@ void Course_list::Create_lecturer(string user_name)
 
 void Course_list::Add_tail(Course x)
 {
+    Create_lecturer(x.lecturer_name);
     if (!head)
     {
         head = new Node_course(x);

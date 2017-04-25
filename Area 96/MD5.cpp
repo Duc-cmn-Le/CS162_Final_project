@@ -9,8 +9,9 @@ Md5::Md5()
     bit_count = 0;
 }
 
-string Md5::Process() // Mai Trinh
+string Md5::Process(string password) // Mai Trinh
 {
+    pass = password;
     istringstream iss(pass);
     unsigned char block[16];
     iss.seekg(0,iss.end);

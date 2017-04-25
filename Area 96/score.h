@@ -38,6 +38,7 @@ public:
     Score_list();                           // Gia Bao
     void Add_to_last(const Score s);        // Gia Bao
     void Add_score_to_last();               // Gia Bao
+    int Find_student(string);               // Gia Bao
     void Print_list(ostream &);             // Gia Bao
     void Print_list_one_line(ostream &);    // Gia Bao
     void Print_list_one_line_(ostream &);   // Gia Bao

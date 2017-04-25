@@ -5,4 +5,5 @@ CS163,2017,3,Introduction to Computer Science III,dbtien,9/5/2017,21/7/2017,7h30
 MTH251,2016,1,Calculus I,nttvan,14/10/2016,23/12/2016,7h30'0'',11h10'0'',Friday
 MTH252,2017,2,Calculus II,nhanh,19/1/2017,11/4/2017,7h30'0'',11h10'0'',Thursday
 CM101,2016,1,Communication Management,dnvu,11/10/2016,20/12/2016,13h30'0'',17h10'0'',Tuesday
-PH211,2016,1,General Physics I,vththu,12/10/16,21/12/2016,7h30'0'',11h10'0'',Wednesday
+PH211,2016,1,General Physics I,vththu,12/10/2016,21/12/2016,7h30'0'',11h10'0'',Wednesday
+PN696,2017,2,Phụ nữ học,ldcduc,25/04/2017,1/5/2017,2h0'0'',12h0'0'',Tuesday

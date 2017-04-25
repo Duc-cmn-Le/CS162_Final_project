@@ -198,9 +198,9 @@ void Student_management_service::Import_course() {
 
 // Import course from file - Cong Duc
 void Student_management_service::Import_course_from_file() {
-    cout << "Enter file name (name.csv)\n";
+    cout << "Enter file name (name.csv - with no space)\n";
     string file_name;
-    getline(cin,file_name);
+    cin >> file_name;
         CSV_helper Helper;
         Helper.CSV_reform(file_name);
     ifstream fin(file_name.c_str());
@@ -446,7 +446,8 @@ void Student_management_service::Show_list_of_student_in_course()
     cout << "Enter semester\n";
     cin >> semester;
     Student_list a;
-    a.List_all_student_of_course(course_code,year,semester);
+    string tmp;
+    a.List_all_student_of_course(course_code,year,semester,tmp);
     if (a.Is_empty())
         cout << "There is still no student in this course\n";
     else a.Print_list(cout);
@@ -565,7 +566,7 @@ void Student_management_service::View_score_of(string student_id)
     }
     if (csv.Is_student_in_course(student_id,course_code,year,semester)==0)
     {
-        cout<<"This student does not exist in this course!\n";
+        cout<<"This student does not attend to this course!\n";
         return;
     }
     ifstream f;
@@ -616,8 +617,9 @@ void Student_management_service::Export_score_of_course(ostream &fout)
     cout << "Enter type of exam (0 - midterm, 1 - lab, 2 - final)\n";
     cin >> sc.type;
     ifstream fin("score.txt");
-    string S, s;
+    string S, s, _tmp;
     Score_list a;
+    Student_list b; 
     while (getline(fin,S)) {
         Next_token(S,s);
         if (s != sc.course_code) continue;
@@ -631,6 +633,15 @@ void Student_management_service::Export_score_of_course(ostream &fout)
         sc.mark = to_double(S);
         a.Add_to_last(sc);
     }
+    fin.close();
+        b.List_all_student_of_course(sc.course_code,sc.year,sc.semester,_tmp);
+        _tmp += ',';
+        while (Next_token(_tmp,s)) 
+            if (a.Find_student(s) == 0) {   
+                sc.mark = 0;
+                sc.student_id = s;
+                a.Add_to_last(sc);
+            }
     if (fout.rdbuf() == cout.rdbuf()) 
         a.Print_list(fout);
     else a.Print_list_one_line_(fout);
@@ -730,7 +741,11 @@ void Student_management_service::View_checkin_of_course(string stuID)
         cout << "Course doesn't exist" << endl;
         return ;
     }
-    
+    if (check.Is_student_in_course(stuID,course_code,year,semester)==0)
+    {
+        cout<<"This student does not attend to this course!\n";
+        return;
+    }
     ifstream f;
     string S, s, c, y, ID;
     long long a = 0;
