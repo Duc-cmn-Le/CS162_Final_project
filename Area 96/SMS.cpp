@@ -793,7 +793,7 @@ void Student_management_service::View_checkin_of_course(string stuID)
 }
 
 //Get list of student who was present - Van Nam
-void Student_management_service::Print_present (string course_code,ostream &fout)
+void Student_management_service::Print_present (string course_code,string year,int semester,ostream &fout)
 {
     fout << "   List of student who was present in class " << course_code << endl;
     Student_list list;
@@ -899,7 +899,7 @@ void Student_management_service::Print_present (string course_code,ostream &fout
 }
 
 //Get list of student who was absent - Van Nam
-void Student_management_service::Print_absent(string course_code,ostream &fout) {
+void Student_management_service::Print_absent(string course_code,string course_code,ostream &fout) {
     fout << "   List of student absent in class " << course_code << endl;
     Student_list absent;
     absent.List_all_student ();

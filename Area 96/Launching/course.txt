@@ -1,0 +1,11 @@
+CS164,2017,4,CS 164,dbtien,5/9/2017,20/12/2017,7:30:0,11:10:0,Friday
+TODAY,2017,2,TODAY,ldcduc,1/4/2017,15/7/2017,7:0:0,19:0:0,Tuesday
+TC001,2017,2,Physical Education,nvhung,5/1/2017,20/4/2017,7:30:0,11:10:0,Saturday
+CS161,2016,1,Introduction to Computer Science I,dbtien,10/10/2016,23/12/2016,7:30:0,11:10:0,Tuesday
+CS162,2017,2,Introduction to Computer Science II,dbtien,17/1/2016,17/1/2017,7:30:0,11:10:0,Tuesday
+CS163,2017,3,Introduction to Computer Science III,dbtien,9/5/2017,21/7/2017,7:30:0,11:10:0,Saturday
+MTH251,2016,1,Calculus I,nttvan,14/10/2016,23/12/2016,7:30:0,11:10:0,Friday
+MTH252,2017,2,Calculus II,nhanh,19/1/2017,11/4/2017,7:30:0,9:10:0,Thursday
+CM101,2016,1,Communication Management,dnvu,11/10/2016,20/12/2016,13:30:0,17:10:0,Tuesday
+PH211,2016,1,General Physics I,vththu,12/10/2016,21/12/2016,7:30:0,11:10:0,Wednesday
+PH212,2017,2,General Physics II,nhnha,19/1/2017,11/4/2017,9:30:0,11:10:0,Thursday

@@ -1,33 +1,65 @@
 Student ID,Full name,Email,mobile phone,Class
+
 1651001,Nguyen Thi Minh Anh,ntmanh@apcs.vn,(123) 456-7890,16CTT
+
 1651003,Nguyen Duy Anh,ndanh@apcs.vn,(123) 456-7891,16CTT
+
 1651004,Nguyen Hoang Gia Bao,nhgbao@apcs.vn,(123) 456-7892,16CTT
+
 1651005,Le Bao Chau,lbchau@apcs.vn,(123) 456-7893,16CTT
+
 1651006,Nguyen Dinh Chieu,ndchieu@apcs.vn,(123) 456-7894,16CTT
+
 1651008,Giang Thanh Danh,gtdanh@apcs.vn,(123) 456-7895,16CTT
+
 1651009,Le Trung Kien,ltkien@apcs.vn,(123) 456-7896,16CTT
+
 1651021,Tran The Loc,ttloc@apcs.vn,(123) 456-7897,16CTT
+
 1651022,Pham Thai Nghi,ptnghi@apcs.vn,(123) 456-7898,16CTT
+
 1651024,Nguyen Trung Nghia,ntnghia@apcs.vn,(123) 456-7899,16CTT
+
 1651025,Nguyen Minh Nhut,nmnhut@apcs.vn,(123) 456-7900,16CTT
+
 1651027,Pham The Quyen,ptquyen@apcs.vn,(123) 456-7901,16CTT
+
 1651029,Tran Thanh Tan,tttan@apcs.vn,(123) 456-7902,16CTT
+
 1651030,Hong Chan Thanh,hcthanh@apcs.vn,(123) 456-7903,16CTT
+
 1651031,Nguyen Dang The Quang,ndtquang@apcs.vn,(123) 456-7904,16CTT
+
 1651032,Huynh Ha Mai Trinh,hmmtrinh@apcs.vn,(123) 456-7905,16CTT
+
 1651034,Tran Nam Trung,tntrung@apcs.vn,(123) 456-7906,16CTT
+
 1651035,Tran Dinh Tu,tdtu@apcs.vn,(123) 456-7907,16CTT
+
 1651036,Le Thua Tuan,lttuan@apcs.vn,(123) 456-7908,16CTT
+
 1651037,Dinh Le Quoc Viet,dlqviet@apcs.vn,(123) 456-7909,16CTT
+
 1651038,Nguyen Mach Thanh Vy,nmtvy@apcs.vn,(123) 456-7910,16CTT
+
 1651040,Truong Huu Duc,thduc@apcs.vn,(123) 456-7911,16CTT
+
 1651041,Pham Viet An,pvan@apcs.vn,(123) 456-7912,16CTT
+
 1651042,Luu Nghiep Chinh,lnchinh@apcs.vn,(123) 456-7913,16CTT
+
 1651043,Le Duong Cong Duc,ldcduc@apcs.vn,(123) 456-7914,16CTT
+
 1651044,Hong Chan Thanh,hdhieu@apcs.vn,(123) 456-7915,16CTT
+
 1651045,Chuyen Nguyen Huy Hoang,cnhhoang@apcs.vn,(123) 456-7916,16CTT
+
 1651046,Nguyen Ba Nhat Khanh,nbnkhanh@apcs.vn,(123) 456-7917,16CTT
+
 1651048,Chu Duc Khanh,cdkhanh@apcs.vn,(123) 456-7918,16CTT
+
 1651049,Ta Minh Khoi,tmkhoi@apcs.vn,(123) 456-7919,16CTT
+
 1651050,Trinh Tuan Kiet,ttkiet@apcs.vn,(123) 456-7920,16CTT
+
 1651051,Pham Van Nam,pvnam@apcs.vn,(123) 456-7921,16CTT
